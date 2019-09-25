@@ -1,0 +1,3150 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY dcterms "http://purl.org/dc/terms/" >
+    <!ENTITY dbpedia "http://dbpedia.org/resource/" >
+    <!ENTITY wiki "http://en.wikipedia.org/wiki/" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY gr "http://purl.org/goodrelations/v1#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY auto "http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#" >
+]>
+
+
+<rdf:RDF xmlns="http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#"
+     xml:base="http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:dbpedia="http://dbpedia.org/resource/"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:auto="http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#"
+     xmlns:gr="http://purl.org/goodrelations/v1#"
+     xmlns:wiki="http://en.wikipedia.org/wiki/"
+     xmlns:dcterms="http://purl.org/dc/terms/">
+    <owl:Ontology rdf:about="http://iurianu.rocks/wp-content/uploads/cdn/auto.owl">
+        <owl:versionInfo>http://iurianu.rocks/wp-content/uploads/cdn/auto.owl</owl:versionInfo>
+        <creator>Iulian Andriescu</creator>
+        <author>Iulian Andriescu</author>
+        <description xml:lang="en">
+            The Auto Ontology combines information from more related ontologies in order to create a common language to be used within the AUTO Industry.
+        </description>
+        <title xml:lang="en">The Automotive Industry Ontology</title>
+        <rdfs:isDefinedBy rdf:resource="http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#gearboxTypeId -->
+
+    <owl:AnnotationProperty rdf:about="&auto;gearboxTypeId">
+        <rdfs:label xml:lang="en">gearboxTypeId (0..1)</rdfs:label>
+        <rdfs:comment xml:lang="en">The Volkswagen-specific gearbox type ID</rdfs:comment>
+        <rdfs:domain rdf:resource="&auto;TransmissionTypeValue"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#hasID -->
+
+    <owl:AnnotationProperty rdf:about="&auto;hasID">
+        <rdfs:label xml:lang="en">hasID (0..1)</rdfs:label>
+        <rdfs:comment xml:lang="en">An annotation property that can be used to attach element identifiers from XML schemas for the corresponding XML data or schema.</rdfs:comment>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/contributor -->
+
+    <owl:AnnotationProperty rdf:about="&dc;contributor"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/creator -->
+
+    <owl:AnnotationProperty rdf:about="&dc;creator"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/rights -->
+
+    <owl:AnnotationProperty rdf:about="&dc;rights"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/subject -->
+
+    <owl:AnnotationProperty rdf:about="&dc;subject"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/title -->
+
+    <owl:AnnotationProperty rdf:about="&dc;title"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/license -->
+
+    <owl:AnnotationProperty rdf:about="&dcterms;license"/>
+    
+
+
+    <!-- http://purl.org/goodrelations/v1#hasMaxValueFloat -->
+
+    <owl:AnnotationProperty rdf:about="&gr;hasMaxValueFloat"/>
+    
+
+
+    <!-- http://purl.org/goodrelations/v1#hasMinValueFloat -->
+
+    <owl:AnnotationProperty rdf:about="&gr;hasMinValueFloat"/>
+    
+
+
+    <!-- http://purl.org/goodrelations/v1#hasUnitOfMeasurement -->
+
+    <owl:AnnotationProperty rdf:about="&gr;hasUnitOfMeasurement"/>
+    
+
+
+    <!-- http://purl.org/goodrelations/v1#hasValueFloat -->
+
+    <owl:AnnotationProperty rdf:about="&gr;hasValueFloat"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#date -->
+
+    <rdfs:Datatype rdf:about="&xsd;date"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#acceleration -->
+
+    <owl:ObjectProperty rdf:about="&auto;acceleration">
+        <rdfs:label xml:lang="en">Acceleration</rdfs:label>
+        <rdfs:comment xml:lang="en">The time needed to accelerate the vehicle from a given start velocity to a given target velocity
+Typical unit code(s): SEC for seconds
+
+Note: There are unfortunately no standard unit codes for seconds/0..100 km/h or seconds/0..60 mph. Simply use &quot;SEC&quot; for seconds and indicate the velocities in the rdfs:label of the gr:QuantitativeValueFloat, or use auto:referenceSpeeds with auto:0to60MPH (0..60 mph) or auto:0to100KMH (0..100 km/h) to specify the reference speeds.</rdfs:comment>
+        <rdfs:range rdf:resource="&gr;QuantitativeValueFloat"/>
+        <rdfs:subPropertyOf rdf:resource="&gr;quantitativeProductOrServiceProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&auto;Boat"/>
+                    <rdf:Description rdf:about="&auto;MotorizedRoadVehicle"/>
+                    <rdf:Description rdf:about="&auto;Ship"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#advancedPayment -->
+
+    <owl:ObjectProperty rdf:about="&auto;advancedPayment">
+        <rdfs:label xml:lang="en">Advanced Payment</rdfs:label>
+        <rdfs:comment xml:lang="en">Indicates the advanced payment for the financing</rdfs:comment>
+        <rdfs:domain rdf:resource="&auto;Financing"/>
+        <rdfs:range rdf:resource="&gr;PriceSpecification"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#availableChoice -->
+
+    <owl:ObjectProperty rdf:about="&auto;availableChoice">
+        <rdfs:label xml:lang="en">Available Choice</rdfs:label>
+        <rdfs:comment xml:lang="en">This property links available Choices or Components to a Spec Item.</rdfs:comment>
+        <rdfs:range rdf:resource="&auto;ChoiceOrComponent"/>
+        <rdfs:domain rdf:resource="&auto;SpecItemCollection"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#axles -->
+
+    <owl:ObjectProperty rdf:about="&auto;axles">
+        <rdfs:label xml:lang="en">Axles</rdfs:label>
+        <rdfs:comment xml:lang="en">The number of axles 
+Typical unit code(s): C62</rdfs:comment>
+        <rdfs:domain rdf:resource="&auto;MotorizedRoadVehicle"/>
+        <rdfs:range rdf:resource="&gr;QuantitativeValueInteger"/>
+        <rdfs:subPropertyOf rdf:resource="&gr;quantitativeProductOrServiceProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#bodyStyle -->
+
+    <owl:ObjectProperty rdf:about="&auto;bodyStyle">
+        <rdfs:label xml:lang="en">Body Style</rdfs:label>
+        <rdfs:comment xml:lang="en">Indicates the design and body style of the vehicle. 
+
+Use DBPedia resources to indicate the features, if possible. Popular identifiers are
+  http://dbpedia.org/resource/Convertible
+  http://dbpedia.org/resource/Hatchback
+  http://dbpedia.org/resource/Station_wagon
+  http://dbpedia.org/resource/Sport_utility_vehicle
+  http://dbpedia.org/resource/Roadster
+
+See also http://en.wikipedia.org/wiki/Car_body_styles.
+
+If you cannot find a suitable identifier in DBPedia, define your own as an instance of auto:BodyStyleValue.</rdfs:comment>
+        <rdfs:seeAlso rdf:resource="&wiki;Car_body_styles"/>
+        <rdfs:range rdf:resource="&auto;BodyStyleValue"/>
+        <rdfs:domain rdf:resource="&gr;ProductOrService"/>
+        <rdfs:subPropertyOf rdf:resource="&gr;qualitativeProductOrServiceProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#cargoVolume -->
+
+    <owl:ObjectProperty rdf:about="&auto;cargoVolume">
+        <rdfs:label xml:lang="en">cargoVolume (0..1)</rdfs:label>
+        <rdfs:comment xml:lang="en">The available volume for cargo or luggage. For automobiles, this is usually the trunk space.
+Typical unit code(s): LTR for liters, FTQ for cubic foot/feet
+    
+Note: You can use gr:hasMinValueFloat and gr:hasMaxValueFloat to indicate ranges.</rdfs:comment>
+        <rdfs:range rdf:resource="&gr;QuantitativeValueFloat"/>
+        <rdfs:subPropertyOf rdf:resource="&gr;quantitativeProductOrServiceProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&auto;MotorizedRoadVehicle"/>
+                    <rdf:Description rdf:about="&auto;Watercraft"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#compatibility -->
+
+    <owl:ObjectProperty rdf:about="&auto;compatibility">
+        <rdfs:label xml:lang="en">Compatibility</rdfs:label>
+        <rdfs:comment xml:lang="en">Links from a Derivative to information on whether a particular configuration is valid (true) or invalid (false)</rdfs:comment>
+        <rdfs:range rdf:resource="&auto;ConfigurationInfo"/>
+        <rdfs:domain rdf:resource="&auto;Derivative"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#compatibleWith -->
+
+    <owl:ObjectProperty rdf:about="&auto;compatibleWith">
+        <rdf:type rdf:resource="&owl;SymmetricProperty"/>
+        <rdfs:label xml:lang="en">Compatible With</rdfs:label>
+        <rdfs:comment xml:lang="en">Indicates that two Choices or Components are compatible with each other.
+
+Note: This property is symmetric, i.e., if A is compatible with B, then B is also compatible with A.</rdfs:comment>
+        <rdfs:range rdf:resource="&auto;ChoiceOrComponent"/>
+        <rdfs:domain rdf:resource="&auto;ChoiceOrComponent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#credit -->
+
+    <owl:ObjectProperty rdf:about="&auto;credit">
+        <rdfs:label xml:lang="en">Credit</rdfs:label>
+        <rdfs:comment xml:lang="en">Indicates the credit for the financing</rdfs:comment>
+        <rdfs:domain rdf:resource="&auto;Financing"/>
+        <rdfs:range rdf:resource="&gr;PriceSpecification"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#customerCashPrice -->
+
+    <owl:ObjectProperty rdf:about="&auto;customerCashPrice">
+        <rdfs:label xml:lang="en">Customer Cash Price</rdfs:label>
+        <rdfs:comment xml:lang="en">Indicates the customer cash price for the financing</rdfs:comment>
+        <rdfs:domain rdf:resource="&auto;Financing"/>
+        <rdfs:range rdf:resource="&gr;PriceSpecification"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#customerDeposit -->
+
+    <owl:ObjectProperty rdf:about="&auto;customerDeposit">
+        <rdfs:label xml:lang="en">Customer Deposit</rdfs:label>
+        <rdfs:comment xml:lang="en">Indicates the customer deposit for the financing</rdfs:comment>
+        <rdfs:domain rdf:resource="&auto;Financing"/>
+        <rdfs:range rdf:resource="&gr;PriceSpecification"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#default -->
+
+    <owl:ObjectProperty rdf:about="&auto;default">
+        <rdfs:label xml:lang="en">Default</rdfs:label>
+        <rdfs:comment xml:lang="en">This property links the default Choice or Component to a Spec Item. 
+Since it is defined a sub-property of coo:availableChoice, the default choice is automatically part of the available choices.</rdfs:comment>
+        <rdfs:range rdf:resource="&auto;ChoiceOrComponent"/>
+        <rdfs:domain rdf:resource="&auto;SpecItemCollection"/>
+        <rdfs:subPropertyOf rdf:resource="&auto;availableChoice"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#dependsOn -->
+
+    <owl:ObjectProperty rdf:about="&auto;dependsOn">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:label xml:lang="en">Depends On</rdfs:label>
+        <rdfs:comment xml:lang="en">Links a Choice or Component to one or multiple other Choices Or Components required for that choice  
+
+Note: This property is transitive, i.e., if B is required by A and C and D are required by B, then C and D are also required by A.</rdfs:comment>
+        <rdfs:domain rdf:resource="&auto;ChoiceOrComponent"/>
+        <rdfs:range rdf:resource="&auto;ChoiceOrComponent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#depositContribution -->
+
+    <owl:ObjectProperty rdf:about="&auto;depositContribution">
+        <rdfs:label xml:lang="en">Deposit Contribution</rdfs:label>
+        <rdfs:comment xml:lang="en">Indicates the deposit contribution for the financing</rdfs:comment>
+        <rdfs:domain rdf:resource="&auto;Financing"/>
+        <rdfs:range rdf:resource="&gr;PriceSpecification"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#discount -->
+
+    <owl:ObjectProperty rdf:about="&auto;discount">
+        <rdfs:label xml:lang="en">Discount</rdfs:label>
+        <rdfs:comment xml:lang="en">Indicates the discount for the financing</rdfs:comment>
+        <rdfs:domain rdf:resource="&auto;Financing"/>
+        <rdfs:range rdf:resource="&gr;PriceSpecification"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#doors -->
+
+    <owl:ObjectProperty rdf:about="&auto;doors">
+        <rdfs:label xml:lang="en">doors (0..1)</rdfs:label>
+        <rdfs:comment xml:lang="en">The number of doors
+Typical unit code(s): C62</rdfs:comment>
+        <rdfs:domain rdf:resource="&auto;MotorizedRoadVehicle"/>
+        <rdfs:range rdf:resource="&gr;QuantitativeValueInteger"/>
+        <rdfs:subPropertyOf rdf:resource="&gr;quantitativeProductOrServiceProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#driveWheelConfiguration -->
+
+    <owl:ObjectProperty rdf:about="&auto;driveWheelConfiguration">
+        <rdfs:label xml:lang="en">Drive Wheel Configuration</rdfs:label>
+        <rdfs:comment xml:lang="en">The drive wheel configuration, i.e. which roadwheels will receive torque from the vehicle&apos;s engine via the drivetrain</rdfs:comment>
+        <rdfs:seeAlso rdf:resource="&wiki;Drive_wheel"/>
+        <rdfs:range rdf:resource="&auto;DriveWheelConfigurationValue"/>
+        <rdfs:domain rdf:resource="&auto;MotorizedRoadVehicle"/>
+        <rdfs:subPropertyOf rdf:resource="&gr;qualitativeProductOrServiceProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#engineDisplacement -->
+
+    <owl:ObjectProperty rdf:about="&auto;engineDisplacement">
+        <rdfs:label xml:lang="en">engineDisplacement (0..*)</rdfs:label>
+        <rdfs:comment xml:lang="en">The volume swept by all of the pistons inside the cylinders of an internal combustion engine in a single movement. If there are multiple engines, simply attach this property multiple times.
+Typical unit code(s): CMQ for cubic centimeter, LTR for liters, INQ for cubic inches
+    
+Note 1: You can link to information about how the given value has been determined using the gr:valueReference property.
+Note 2: You can use gr:hasMinValueFloat and gr:hasMaxValueFloat to indicate ranges.</rdfs:comment>
+        <rdfs:seeAlso rdf:resource="&wiki;Engine_displacement"/>
+        <rdfs:range rdf:resource="&gr;QuantitativeValueFloat"/>
+        <rdfs:subPropertyOf rdf:resource="&gr;quantitativeProductOrServiceProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&auto;Boat"/>
+                    <rdf:Description rdf:about="&auto;MotorizedRoadVehicle"/>
+                    <rdf:Description rdf:about="&auto;Ship"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#enginePower -->
+
+    <owl:ObjectProperty rdf:about="&auto;enginePower">
+        <rdfs:label xml:lang="en">enginePower (0..*)</rdfs:label>
+        <rdfs:comment xml:lang="en">The power of the vehicle&apos;s engine. If there are multiple engines, simply attach this property multiple times.
+Typical unit code(s): KWT for kilowatt 
+    
+Note 1: There are many different ways of measuring an engine&apos;s power. For an overview, see  http://en.wikipedia.org/wiki/Horsepower#Engine_power_test_codes.
+Note 2: You can link to information about how the given value has been determined using the gr:valueReference property.
+Note 3: You can use gr:hasMinValueFloat and gr:hasMaxValueFloat to indicate ranges.</rdfs:comment>
+        <rdfs:seeAlso rdf:resource="&wiki;Horsepower"/>
+        <rdfs:range rdf:resource="&gr;QuantitativeValueFloat"/>
+        <rdfs:subPropertyOf rdf:resource="&gr;quantitativeProductOrServiceProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&auto;Boat"/>
+                    <rdf:Description rdf:about="&auto;MotorizedRoadVehicle"/>
+                    <rdf:Description rdf:about="&auto;Ship"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#engineType -->
+
+    <owl:ObjectProperty rdf:about="&auto;engineType">
+        <rdfs:label xml:lang="en">Engine Type</rdfs:label>
+        <rdfs:comment xml:lang="en">The type of engine or engines powering the vehicle. If there are multiple engines, simply attach this property multiple times.
+
+Use DBPedia resources to indicate the engine type. Popular identifiers are
+  http://dbpedia.org/resource/Two-stroke_engine
+  http://dbpedia.org/resource/Four-stroke_engine
+  http://dbpedia.org/resource/Wankel_engine
+  http://dbpedia.org/resource/Electric_motor
+
+If you cannot find a suitable identifier in DBPedia, define your own as an instance of auto:EngineTypeValue.</rdfs:comment>
+        <rdfs:range rdf:resource="&auto;EngineTypeValue"/>
+        <rdfs:subPropertyOf rdf:resource="&gr;qualitativeProductOrServiceProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&auto;Boat"/>
+                    <rdf:Description rdf:about="&auto;MotorizedRoadVehicle"/>
+                    <rdf:Description rdf:about="&auto;Ship"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#excessMileage -->
+
+    <owl:ObjectProperty rdf:about="&auto;excessMileage">
+        <rdfs:label xml:lang="en">Excess Mileage</rdfs:label>
+        <rdfs:comment xml:lang="en">Indicates the rate for excess mileage</rdfs:comment>
+        <rdfs:domain rdf:resource="&auto;Financing"/>
+        <rdfs:range rdf:resource="&gr;PriceSpecification"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#feature -->
+
+    <owl:ObjectProperty rdf:about="&auto;feature">
+        <rdfs:label xml:lang="en">Feature</rdfs:label>
+        <rdfs:comment xml:lang="en">Indicates a built-in feature, accessory, or component of the vehicle.
+
+Use DBPedia resources to indicate the features, if possible. Popular identifiers are
+  http://dbpedia.org/resource/Anti-lock_braking_system
+  http://dbpedia.org/resource/Electronic_stability_control
+  http://dbpedia.org/resource/Armrest
+  http://dbpedia.org/resource/Spoiler_%28automotive%29
+  http://dbpedia.org/resource/CD_Changer
+  http://dbpedia.org/resource/Cup_holder
+  http://dbpedia.org/resource/Tow_hitch
+  http://dbpedia.org/resource/Power_window
+  http://dbpedia.org/resource/Power_steering
+  http://dbpedia.org/resource/Air_conditioner
+  http://dbpedia.org/resource/Child_safety_lock
+  http://dbpedia.org/resource/Parking_sensors
+
+See also http://en.wikipedia.org/wiki/Category:Automotive_accessories.
+
+If you cannot find a suitable identifier in DBPedia, define your own as an instance of auto:FeatureValue.</rdfs:comment>
+        <rdfs:seeAlso rdf:resource="&dbpedia;Category:Automotive_accessories"/>
+        <rdfs:seeAlso rdf:resource="&wiki;Category:Automotive_accessories"/>
+        <rdfs:range rdf:resource="&auto;FeatureValue"/>
+        <rdfs:domain rdf:resource="&gr;ProductOrService"/>
+        <rdfs:subPropertyOf rdf:resource="&gr;qualitativeProductOrServiceProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#featureOverride -->
+
+    <owl:ObjectProperty rdf:about="&auto;featureOverride">
+        <rdfs:label xml:lang="en">Feature Override</rdfs:label>
+        <rdfs:comment xml:lang="en">Links a coo:ConfigurationInfo node to information on how a choice or component or the combination of multiple choices will override the regular properties of the resulting vehicle</rdfs:comment>
+        <rdfs:range rdf:resource="&auto;PropertySpecification"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&auto;ChoiceOrComponent"/>
+                    <rdf:Description rdf:about="&auto;ConfigurationInfo"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#finalPaymentFee -->
+
+    <owl:ObjectProperty rdf:about="&auto;finalPaymentFee">
+        <rdfs:label xml:lang="en">Final Payment Fee</rdfs:label>
+        <rdfs:comment xml:lang="en">Indicates the final payment fee for the financing</rdfs:comment>
+        <rdfs:domain rdf:resource="&auto;Financing"/>
+        <rdfs:range rdf:resource="&gr;PriceSpecification"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#firstMonthlyPaymentFee -->
+
+    <owl:ObjectProperty rdf:about="&auto;firstMonthlyPaymentFee">
+        <rdfs:label xml:lang="en">First Monthly Payment Fee</rdfs:label>
+        <rdfs:comment xml:lang="en">Indicates the first monthly payment fee for the financing</rdfs:comment>
+        <rdfs:domain rdf:resource="&auto;Financing"/>
+        <rdfs:range rdf:resource="&gr;PriceSpecification"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#fuelConsumption -->
+
+    <owl:ObjectProperty rdf:about="&auto;fuelConsumption">
+        <rdfs:label xml:lang="en">fuelConsumption (0..*)</rdfs:label>
+        <rdfs:comment xml:lang="en">The amount of fuel consumed for traveling a particular distance or temporal duration with the given vehicle (e.g. liters per 100 km)
+Typical unit code(s): LTR for liters, GLL of US Gallons, GLI for UK / Imperial Gallons
+        
+Note 1: There are unfortunately no standard unit codes for &quot;liters per 100 km&quot;. Simply use &quot;LTR&quot; for liters, &quot;GLL&quot; of US Gallons, or &quot;GLI&quot; for UK / Imperial Gallons, and indicate the distance in the rdfs:label of the gr:QuantitativeValueFloat or use auto:referenceDistance to model the reference distance (e.g. 100 km). 
+Note 2: There are two ways of indicating the fuel consumption, auto:fuelConsumption (e.g. 8 liters per 100 km) and auto:fuelEconomy (e.g. 30 miles per gallon). They are reciprocal.
+Note 3: Often, the absolute value is useful only when related to driving speed (&quot;at 80 km/h&quot;) or usage pattern (&quot;city traffic&quot;). You can use gr:valueReference to link the value for the fuel consumption to another value.</rdfs:comment>
+        <rdfs:seeAlso rdf:resource="&wiki;Fuel_economy_in_automobiles"/>
+        <rdfs:range rdf:resource="&gr;QuantitativeValueFloat"/>
+        <rdfs:subPropertyOf rdf:resource="&gr;quantitativeProductOrServiceProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&auto;Boat"/>
+                    <rdf:Description rdf:about="&auto;MotorizedRoadVehicle"/>
+                    <rdf:Description rdf:about="&auto;Ship"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#fuelEconomy -->
+
+    <owl:ObjectProperty rdf:about="&auto;fuelEconomy">
+        <rdfs:label xml:lang="en">fuelEconomy (0..*)</rdfs:label>
+        <rdfs:comment xml:lang="en">The distance traveled per unit of fuel used; most commonly miles per gallon (mpg) or kilometers per liter (km/L)
+Typical unit code(s): KMT for kilometers, SMI for statute miles
+    
+Note 1: There are unfortunately no standard unit codes for miles per gallon or kilometers per liter. 
+Simply use &quot;SMI&quot; for statute miles (common miles in the US and UK) or &quot;KMT&quot; for kilometers, and indicate 
+the fuel amount of reference in the rdfs:label of the gr:QuantitativeValueFloat, or use auto:referenceFuelQuantity with auto:1LTR (1 liter), auto:1GLL (1 US Gallon), or auto:1GLI (1 British Gallon). 
+Note 2: In the absence of a auto:referenceFuelQuantity one may assume that the quantity of reference is 1 gallon for distances given in miles and 1 liter for distances given in kilometers. However, note that the original unit may be obscured by unit conversion services, so this heuristic is far from perfect.
+Note 3: There are two ways of indicating the fuel consumption, auto:fuelConsumption (e.g. 8 liters per 100 km) and auto:fuelEconomy (e.g. 30 miles per gallon). They are reciprocal.
+Note 4: Often, the absolute value is useful only when related to driving speed (&quot;at 80 km/h&quot;) or usage pattern (&quot;city traffic&quot;). You can use gr:valueReference to link the value for the fuel economy to another value.</rdfs:comment>
+        <rdfs:seeAlso rdf:resource="&wiki;Fuel_economy_in_automobiles"/>
+        <rdfs:domain rdf:resource="&auto;MotorizedRoadVehicle"/>
+        <rdfs:range rdf:resource="&gr;QuantitativeValueFloat"/>
+        <rdfs:subPropertyOf rdf:resource="&gr;quantitativeProductOrServiceProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#fuelTankVolume -->
+
+    <owl:ObjectProperty rdf:about="&auto;fuelTankVolume">
+        <rdfs:label xml:lang="en">fuelTankVolume (0..1)</rdfs:label>
+        <rdfs:comment xml:lang="en">The volume of the fuel tank. If there are multiple tanks, this should indicate the total of all tanks.
+Typical unit code(s): LTR for liters, GLL of US gallons, GLI for UK / imperial gallons</rdfs:comment>
+        <rdfs:range rdf:resource="&gr;QuantitativeValueFloat"/>
+        <rdfs:subPropertyOf rdf:resource="&gr;quantitativeProductOrServiceProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&auto;Boat"/>
+                    <rdf:Description rdf:about="&auto;MotorizedRoadVehicle"/>
+                    <rdf:Description rdf:about="&auto;Ship"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#fuelType -->
+
+    <owl:ObjectProperty rdf:about="&auto;fuelType">
+        <rdfs:label xml:lang="en">Fuel Type</rdfs:label>
+        <rdfs:comment xml:lang="en">The type of fuel suitable for the engine or engines of the vehicle.
+
+Use DBPedia resources to indicate the fuel type. Popular identifiers are
+  http://dbpedia.org/resource/Gasoline
+  http://dbpedia.org/resource/Diesel
+  http://dbpedia.org/resource/Biodiesel
+  http://dbpedia.org/resource/Kerosene
+
+For two-stroke mixtures, use auto:TwoStrokeMixture. </rdfs:comment>
+        <rdfs:range rdf:resource="&auto;FuelTypeValue"/>
+        <rdfs:domain rdf:resource="&gr;ProductOrService"/>
+        <rdfs:subPropertyOf rdf:resource="&gr;qualitativeProductOrServiceProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#gearbox -->
+
+    <owl:ObjectProperty rdf:about="&auto;gearbox">
+        <rdfs:label xml:lang="en">Gearbox</rdfs:label>
+        <rdfs:comment xml:lang="en">The gearbox type of the vehicle or vehicle model</rdfs:comment>
+        <rdfs:seeAlso rdf:resource="http://dbpedia.org/page/Transmission_%28mechanics%29"/>
+        <rdfs:seeAlso rdf:resource="&wiki;Transmission_%28mechanics%29"/>
+        <rdfs:range rdf:resource="&auto;GearboxTypeValue"/>
+        <rdfs:domain rdf:resource="&auto;MotorizedRoadVehicle"/>
+        <rdfs:subPropertyOf rdf:resource="&gr;qualitativeProductOrServiceProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#gearsTotal -->
+
+    <owl:ObjectProperty rdf:about="&auto;gearsTotal">
+        <rdfs:label xml:lang="en">gearsTotal (0..1)</rdfs:label>
+        <rdfs:comment xml:lang="en">The total number of forward and reverse gears available for the transmission system of the vehicle
+Typical unit code(s): C62</rdfs:comment>
+        <rdfs:seeAlso rdf:resource="&wiki;Gear"/>
+        <rdfs:range rdf:resource="&gr;QuantitativeValueInteger"/>
+        <rdfs:subPropertyOf rdf:resource="&gr;quantitativeProductOrServiceProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&auto;Bicycle"/>
+                    <rdf:Description rdf:about="&auto;Boat"/>
+                    <rdf:Description rdf:about="&auto;MotorizedRoadVehicle"/>
+                    <rdf:Description rdf:about="&auto;Quadracycle"/>
+                    <rdf:Description rdf:about="&auto;Ship"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#hasCompleteCarModel -->
+
+    <owl:ObjectProperty rdf:about="&auto;hasCompleteCarModel">
+        <rdfs:label xml:lang="en">Has Complete Car Model</rdfs:label>
+        <rdfs:comment xml:lang="en">Links one or multiple Complete Car Models to the underlying Derivative</rdfs:comment>
+        <rdfs:range rdf:resource="&auto;CompleteCarModel"/>
+        <rdfs:domain rdf:resource="&auto;Derivative"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#hasDerivative -->
+
+    <owl:ObjectProperty rdf:about="&auto;hasDerivative">
+        <rdfs:label xml:lang="en">Has Derivative</rdfs:label>
+        <rdfs:comment xml:lang="en">Links a Derivative to a Trim</rdfs:comment>
+        <rdfs:range rdf:resource="&auto;Derivative"/>
+        <rdfs:domain rdf:resource="&auto;Trim"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#hasSpecItemChoice -->
+
+    <owl:ObjectProperty rdf:about="&auto;hasSpecItemChoice">
+        <rdfs:label xml:lang="en">Has Spec Item Choice</rdfs:label>
+        <rdfs:comment xml:lang="en">Links a Complete Car Model to the choices for configurational options</rdfs:comment>
+        <rdfs:range rdf:resource="&auto;ChoiceOrComponent"/>
+        <rdfs:domain rdf:resource="&auto;CompleteCarModel"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#hasSpecItems -->
+
+    <owl:ObjectProperty rdf:about="&auto;hasSpecItems">
+        <rdfs:label xml:lang="en">Has Spec Items</rdfs:label>
+        <rdfs:comment xml:lang="en">This property links available Spec Items to a Derivative.</rdfs:comment>
+        <rdfs:domain rdf:resource="&auto;Derivative"/>
+        <rdfs:range rdf:resource="&auto;SpecItemCollection"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#hasTrim -->
+
+    <owl:ObjectProperty rdf:about="&auto;hasTrim">
+        <rdfs:label xml:lang="en">Has Trim</rdfs:label>
+        <rdfs:comment xml:lang="en">Links a Trim to Base Model</rdfs:comment>
+        <rdfs:domain rdf:resource="&auto;BaseModel"/>
+        <rdfs:range rdf:resource="&auto;Trim"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#height -->
+
+    <owl:ObjectProperty rdf:about="&auto;height">
+        <rdfs:label xml:lang="en">height (0..1)</rdfs:label>
+        <rdfs:comment xml:lang="en">The outer height of the vehicle. Note that you can use gr:hasMinValueFloat and gr:hasMaxValueFloat to indicate ranges.
+Typical unit code(s): CMT for centimeters, MTR for meters, INH for inches, FOT for foot/feet</rdfs:comment>
+        <rdfs:domain rdf:resource="&gr;ProductOrService"/>
+        <rdfs:range rdf:resource="&gr;QuantitativeValueFloat"/>
+        <rdfs:subPropertyOf rdf:resource="&gr;quantitativeProductOrServiceProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#heightOpenBonnet -->
+
+    <owl:ObjectProperty rdf:about="&auto;heightOpenBonnet">
+        <rdfs:label xml:lang="en">heightOpenBonnet (0..1)</rdfs:label>
+        <rdfs:comment xml:lang="en">The outer height of the vehicle with the bonnet open. Note that you can use gr:hasMinValueFloat and gr:hasMaxValueFloat to indicate ranges.
+Typical unit code(s): CMT for centimeters, MTR for meters, INH for inches, FOT for foot/feet</rdfs:comment>
+        <rdfs:domain rdf:resource="&gr;ProductOrService"/>
+        <rdfs:range rdf:resource="&gr;QuantitativeValueFloat"/>
+        <rdfs:subPropertyOf rdf:resource="&gr;quantitativeProductOrServiceProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#heightOpenTailgate -->
+
+    <owl:ObjectProperty rdf:about="&auto;heightOpenTailgate">
+        <rdfs:label xml:lang="en">heightOpenTailgate (0..1)</rdfs:label>
+        <rdfs:comment xml:lang="en">The outer height of the vehicle with the tailgate open. Note that you can use gr:hasMinValueFloat and gr:hasMaxValueFloat to indicate ranges.
+Typical unit code(s): CMT for centimeters, MTR for meters, INH for inches, FOT for foot/feet</rdfs:comment>
+        <rdfs:domain rdf:resource="&gr;ProductOrService"/>
+        <rdfs:range rdf:resource="&gr;QuantitativeValueFloat"/>
+        <rdfs:subPropertyOf rdf:resource="&gr;quantitativeProductOrServiceProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#includes -->
+
+    <owl:ObjectProperty rdf:about="&auto;includes">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:label xml:lang="en">Includes</rdfs:label>
+        <rdfs:comment xml:lang="en">Links a Choice or Component to one or multiple other Choices Or Components implicity contained
+
+Note: This property is transitive, i.e., if B is included in A and C and D are included in B, then C and D are also included in A.</rdfs:comment>
+        <rdfs:range rdf:resource="&auto;ChoiceOrComponent"/>
+        <rdfs:domain rdf:resource="&auto;ChoiceOrComponent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#includesChoices -->
+
+    <owl:ObjectProperty rdf:about="&auto;includesChoices">
+        <rdfs:label xml:lang="en">Includes Choices</rdfs:label>
+        <rdfs:comment xml:lang="en">Indicates the set of Choices Or Components to which the Configuration Info node refers
+
+Note 1: Complementing compatibility information can be attached to the components directly via coo:compatibleWith, coo:incompatibleWith, coo:dependsOn, and coo:includes.
+Note 2: The coo:ConfigurationInfo node makes only a valid statement for a configuration that includes ALL of the Choices or Components attached via this property. 
+Note 3: If you want to know whether further components can be added, check that there are no coo:incompatibleWith relationships with any Choice or Component. This check must also be extended to all Choices or Components implicitly included via coo:includes.
+Note 4: If you want to know whether some components may be omitted without invalidating the configuration, check that there are no coo:dependsOn relationships with any Choice or Component. This check must also be extended to all Choices Or Components implicitly included via coo:includes.
+Note 5: Under an Open World Assumption (OWA), only an explicit compatibility statement for your configuration is really reliable. A weaker guarantee may be sufficient for your application, though.</rdfs:comment>
+        <rdfs:range rdf:resource="&auto;ChoiceOrComponent"/>
+        <rdfs:domain rdf:resource="&auto;ConfigurationInfo"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#incompatibleWith -->
+
+    <owl:ObjectProperty rdf:about="&auto;incompatibleWith">
+        <rdf:type rdf:resource="&owl;SymmetricProperty"/>
+        <rdfs:label xml:lang="en">Incompatible With</rdfs:label>
+        <rdfs:comment xml:lang="en">Indicates that two Choices or Components are incompatible with each other, independent from other choices.
+
+Note: This property is symmetric, i.e., if A is incompatible with B, then B is also incompatible with A.</rdfs:comment>
+        <rdfs:domain rdf:resource="&auto;ChoiceOrComponent"/>
+        <rdfs:range rdf:resource="&auto;ChoiceOrComponent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#length -->
+
+    <owl:ObjectProperty rdf:about="&auto;length">
+        <rdfs:label xml:lang="en">length (0..1)</rdfs:label>
+        <rdfs:comment xml:lang="en">The outer length of the vehicle. Note that you can use gr:hasMinValueFloat and gr:hasMaxValueFloat to indicate ranges.
+Typical unit code(s): CMT for centimeters, MTR for meters, INH for inches, FOT for foot/feet</rdfs:comment>
+        <rdfs:domain rdf:resource="&gr;ProductOrService"/>
+        <rdfs:range rdf:resource="&gr;QuantitativeValueFloat"/>
+        <rdfs:subPropertyOf rdf:resource="&gr;quantitativeProductOrServiceProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#luggageCapacitySeatsFolded -->
+
+    <owl:ObjectProperty rdf:about="&auto;luggageCapacitySeatsFolded">
+        <rdfs:label xml:lang="en">luggageCapacitySeatsFolded (0..1)</rdfs:label>
+        <rdfs:comment xml:lang="en">The available volume for cargo or luggage with the seats folded
+Typical unit code(s): LTR for liters, FTQ for cubic foot/feet
+    
+Note: You can use gr:hasMinValueFloat and gr:hasMaxValueFloat to indicate ranges.</rdfs:comment>
+        <rdfs:domain rdf:resource="&auto;MotorizedRoadVehicle"/>
+        <rdfs:subPropertyOf rdf:resource="&auto;cargoVolume"/>
+        <rdfs:range rdf:resource="&gr;QuantitativeValueFloat"/>
+        <rdfs:subPropertyOf rdf:resource="&gr;quantitativeProductOrServiceProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#luggageCapacitySeatsUpright -->
+
+    <owl:ObjectProperty rdf:about="&auto;luggageCapacitySeatsUpright">
+        <rdfs:label xml:lang="en">luggageCapacitySeatsUpright (0..1)</rdfs:label>
+        <rdfs:comment xml:lang="en">The available volume for cargo or luggage with the seats upright
+Typical unit code(s): LTR for liters, FTQ for cubic foot/feet
+    
+Note: You can use gr:hasMinValueFloat and gr:hasMaxValueFloat to indicate ranges.</rdfs:comment>
+        <rdfs:domain rdf:resource="&auto;MotorizedRoadVehicle"/>
+        <rdfs:subPropertyOf rdf:resource="&auto;cargoVolume"/>
+        <rdfs:range rdf:resource="&gr;QuantitativeValueFloat"/>
+        <rdfs:subPropertyOf rdf:resource="&gr;quantitativeProductOrServiceProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#meetsEmissionStandard -->
+
+    <owl:ObjectProperty rdf:about="&auto;meetsEmissionStandard">
+        <rdfs:label xml:lang="en">Meets Emission Standard</rdfs:label>
+        <rdfs:comment xml:lang="en">Indicates that the vehicle meets the respective emission standard. 
+
+Use DBPedia resources to indicate the standard, if possible. Popular identifiers are
+  http://dbpedia.org/resource/Super_Ultra_Low_Emission_Vehicle
+  http://dbpedia.org/resource/Partial_zero-emissions_vehicle
+
+See also http://en.wikipedia.org/wiki/Emissions_standard.
+
+Unfortunately, there are no DBPedia identifiers for the popular Euro 1 - Euro 5 standards available.
+If you cannot find a suitable identifier in DBPedia, define your own as an instance of auto:EmissionStandardValue.</rdfs:comment>
+        <rdfs:seeAlso rdf:resource="&wiki;Emissions_standard"/>
+        <rdfs:range rdf:resource="&auto;EmissionStandardValue"/>
+        <rdfs:domain rdf:resource="&gr;ProductOrService"/>
+        <rdfs:subPropertyOf rdf:resource="&gr;qualitativeProductOrServiceProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#mileageFromOdometer -->
+
+    <owl:ObjectProperty rdf:about="&auto;mileageFromOdometer">
+        <rdfs:label xml:lang="en">mileageFromOdometer (0..1)</rdfs:label>
+        <rdfs:comment xml:lang="en">The total distance travelled by the particular vehicle since its initial production, as read from its odometer
+Typical unit code(s): KMT for kilometers, SMI for statute miles
+    
+Note: This property should be used with gr:ActualProductOrServiceInstance (when offering a vehicle) or gr:ProductOrServicesSomeInstancesPlaceholder (when seeking a vehicle using gr:seeks) only.</rdfs:comment>
+        <rdfs:domain rdf:resource="&auto;MotorizedRoadVehicle"/>
+        <rdfs:range rdf:resource="&gr;QuantitativeValueFloat"/>
+        <rdfs:subPropertyOf rdf:resource="&gr;quantitativeProductOrServiceProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#monthlyPayment -->
+
+    <owl:ObjectProperty rdf:about="&auto;monthlyPayment">
+        <rdfs:label xml:lang="en">Monthly Payment</rdfs:label>
+        <rdfs:comment xml:lang="en">Indicates the monthly payment for the financing</rdfs:comment>
+        <rdfs:domain rdf:resource="&auto;Financing"/>
+        <rdfs:range rdf:resource="&gr;PriceSpecification"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#otrRetailPrice -->
+
+    <owl:ObjectProperty rdf:about="&auto;otrRetailPrice">
+        <rdfs:label xml:lang="en">OTR Retail Price</rdfs:label>
+        <rdfs:comment xml:lang="en">Indicates the OTR retail price for the financing.
+On-the-road price (OTR) is the price that you pay for a new car - ready to drive.
+        </rdfs:comment>
+        <rdfs:domain rdf:resource="&auto;Financing"/>
+        <rdfs:range rdf:resource="&gr;PriceSpecification"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#payload -->
+
+    <owl:ObjectProperty rdf:about="&auto;payload">
+        <rdfs:label xml:lang="en">Payload</rdfs:label>
+        <rdfs:comment xml:lang="en">The permited weight of passengers and cargo, EXCLUDING the weight of the empty vehicle
+Typical unit code(s): KGM for kilogram, LBR for pound
+    
+Note 1: Many databases specify the permitted TOTAL weight instead, which is the sum of auto:weight and auto:payload.
+Note 2: You can indicate additional information in the rdfs:label of the gr:QuantitativeValueFloat node.
+Note 3: You may also link to a gr:QualitativeValue node that provides additional information using gr:valueReference.
+Note 4: Note that you can use gr:hasMinValueFloat and gr:hasMaxValueFloat to indicate ranges.</rdfs:comment>
+        <rdfs:domain rdf:resource="&gr;ProductOrService"/>
+        <rdfs:range rdf:resource="&gr;QuantitativeValueFloat"/>
+        <rdfs:subPropertyOf rdf:resource="&gr;quantitativeProductOrServiceProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#previousOwners -->
+
+    <owl:ObjectProperty rdf:about="&auto;previousOwners">
+        <rdfs:label xml:lang="en">previousOwners (0..1)</rdfs:label>
+        <rdfs:comment xml:lang="en">The number of previous owners of the vehicle, including the current one
+Typical unit code(s): C62
+    
+Note: This property should be used with gr:ActualProductOrServiceInstance (when offering a vehicle) or gr:ProductOrServicesSomeInstancesPlaceholder (when seeking a vehicle using gr:seeks) only.</rdfs:comment>
+        <rdfs:domain rdf:resource="&gr;ProductOrService"/>
+        <rdfs:range rdf:resource="&gr;QuantitativeValueInteger"/>
+        <rdfs:subPropertyOf rdf:resource="&gr;quantitativeProductOrServiceProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#priceModifier -->
+
+    <owl:ObjectProperty rdf:about="&auto;priceModifier">
+        <rdfs:label xml:lang="en">Price Modiﬁer</rdfs:label>
+        <rdfs:comment xml:lang="en">Links a coo:ConfigurationInfo node to information on a choice or component or the combination of multiple choices will affect the regular pricing of the resulting vehicle
+
+Note: The use of gr:addOn is in general a better way of modeling surcharges</rdfs:comment>
+        <rdfs:range rdf:resource="&auto;RelativePriceSpecification"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&auto;ChoiceOrComponent"/>
+                    <rdf:Description rdf:about="&auto;ConfigurationInfo"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#referenceDistance -->
+
+    <owl:ObjectProperty rdf:about="&auto;referenceDistance">
+        <rdfs:label xml:lang="en">Reference Distance</rdfs:label>
+        <rdfs:comment xml:lang="en">The distance to which the &quot;Fuel Consumption&quot; value refers</rdfs:comment>
+        <rdfs:range rdf:resource="&gr;QuantitativeValue"/>
+        <rdfs:domain rdf:resource="&gr;QuantitativeValueFloat"/>
+        <rdfs:subPropertyOf rdf:resource="&gr;valueReference"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#referenceFuelQuantity -->
+
+    <owl:ObjectProperty rdf:about="&auto;referenceFuelQuantity">
+        <rdfs:label xml:lang="en">Reference Fuel Quantity</rdfs:label>
+        <rdfs:comment xml:lang="en">The quantity of fuel to which a auto:fuelEconomy value refers</rdfs:comment>
+        <rdfs:range rdf:resource="&auto;FuelQuantity"/>
+        <rdfs:domain rdf:resource="&gr;QuantitativeValueFloat"/>
+        <rdfs:subPropertyOf rdf:resource="&gr;valueReference"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#referenceSpeeds -->
+
+    <owl:ObjectProperty rdf:about="&auto;referenceSpeeds">
+        <rdfs:label xml:lang="en">Reference Speeds</rdfs:label>
+        <rdfs:comment xml:lang="en">The interval of initial and target speed to which a auto:acceleration value refers</rdfs:comment>
+        <rdfs:range rdf:resource="&auto;SpeedInterval"/>
+        <rdfs:domain rdf:resource="&gr;QuantitativeValueFloat"/>
+        <rdfs:subPropertyOf rdf:resource="&gr;valueReference"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#refersToTrafficPattern -->
+
+    <owl:ObjectProperty rdf:about="&auto;refersToTrafficPattern">
+        <rdfs:label xml:lang="en">Refers to Traffic Pattern</rdfs:label>
+        <rdfs:comment xml:lang="en">Indicates the traffic pattern to which the auto:fuelEconomy or auto:fuelConsumption value refers</rdfs:comment>
+        <rdfs:range rdf:resource="&auto;TrafficPattern"/>
+        <rdfs:domain rdf:resource="&gr;QuantitativeValue"/>
+        <rdfs:subPropertyOf rdf:resource="&gr;valueReference"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#roofLoad -->
+
+    <owl:ObjectProperty rdf:about="&auto;roofLoad">
+        <rdfs:label xml:lang="en">roofLoad (0..1)</rdfs:label>
+        <rdfs:comment xml:lang="en">The permited total weight of cargo and installations (e.g. a roof rack) on top of the vehicle
+Typical unit code(s): KGM for kilogram, LBR for pound
+    
+Note 1: You can indicate additional information in the rdfs:label of the gr:QuantitativeValueFloat node.
+Note 2: You may also link to a gr:QualitativeValue node that provides additional information using gr:valueReference.
+Note 3: Note that you can use gr:hasMinValueFloat and gr:hasMaxValueFloat to indicate ranges.</rdfs:comment>
+        <rdfs:domain rdf:resource="&auto;MotorizedRoadVehicle"/>
+        <rdfs:range rdf:resource="&gr;QuantitativeValueFloat"/>
+        <rdfs:subPropertyOf rdf:resource="&gr;quantitativeProductOrServiceProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#rotationalSpeedReference -->
+
+    <owl:ObjectProperty rdf:about="&auto;rotationalSpeedReference">
+        <rdfs:label xml:lang="en">Rotational Speed Reference</rdfs:label>
+        <rdfs:comment xml:lang="en">The rotational speed to which a auto:torque or auto:enginePower value refers
+Typical unit code(s): RPM for revolutions per minute or RPS for revolutions per second</rdfs:comment>
+        <rdfs:range rdf:resource="&gr;QuantitativeValue"/>
+        <rdfs:domain rdf:resource="&gr;QuantitativeValue"/>
+        <rdfs:subPropertyOf rdf:resource="&gr;valueReference"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#scrappageContribution -->
+
+    <owl:ObjectProperty rdf:about="&auto;scrappageContribution">
+        <rdfs:label xml:lang="en">scrappageContribution (0..1)</rdfs:label>
+        <rdfs:comment xml:lang="en">Indicates the scrappage contribution for the financing</rdfs:comment>
+        <rdfs:domain rdf:resource="&auto;Financing"/>
+        <rdfs:range rdf:resource="&gr;PriceSpecification"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#seatingCapacity -->
+
+    <owl:ObjectProperty rdf:about="&auto;seatingCapacity">
+        <rdfs:label xml:lang="en">seatingCapacity (0..1)</rdfs:label>
+        <rdfs:comment xml:lang="en">The number of passengers that can be seated in the vehicle, both in terms of the physical space available, and in terms of limitations set by law
+Typical unit code(s): C62 for persons </rdfs:comment>
+        <rdfs:domain rdf:resource="&gr;ProductOrService"/>
+        <rdfs:range rdf:resource="&gr;QuantitativeValueInteger"/>
+        <rdfs:subPropertyOf rdf:resource="&gr;quantitativeProductOrServiceProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#speed -->
+
+    <owl:ObjectProperty rdf:about="&auto;speed">
+        <rdfs:label xml:lang="en">speed (0..*)</rdfs:label>
+        <rdfs:comment xml:lang="en">The speed range of the vehicle. If the vehicle is powered by an engine, the upper limit of the speed range (indicated by gr:hasMaxValueFloat) should be the maximum speed achievable under regular conditions.
+Typical unit code(s): KMH for km/h, HM for mile per hour (0.447 04 m/s), KNT for knot
+    
+Note 1: Use gr:hasMinValueFloat and gr:hasMaxValueFloat to indicate the range. Typically, the minimal value is zero.
+Note 2: There are many different ways of measuring the speed range. You can link to information about how the given value has been determined using the gr:valueReference property.</rdfs:comment>
+        <rdfs:domain rdf:resource="&gr;ProductOrService"/>
+        <rdfs:range rdf:resource="&gr;QuantitativeValueFloat"/>
+        <rdfs:subPropertyOf rdf:resource="&gr;quantitativeProductOrServiceProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#steeringPosition -->
+
+    <owl:ObjectProperty rdf:about="&auto;steeringPosition">
+        <rdfs:label xml:lang="en">Steering Position</rdfs:label>
+        <rdfs:comment xml:lang="en">The position of the steering wheel or similar device (mostly for cars)</rdfs:comment>
+        <rdfs:domain rdf:resource="&auto;MotorizedRoadVehicle"/>
+        <rdfs:range rdf:resource="&auto;SteeringPositionValue"/>
+        <rdfs:subPropertyOf rdf:resource="&gr;qualitativeProductOrServiceProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#tongueWeight -->
+
+    <owl:ObjectProperty rdf:about="&auto;tongueWeight">
+        <rdfs:label xml:lang="en">tongueWeight (0..1)</rdfs:label>
+        <rdfs:comment xml:lang="en">The permited vertical load (TWR) of a trailer attached to the vehicle. Also referred to as Tongue Load Rating (TLR) or Vertical Load Rating (VLR).
+    Typical unit code(s): KGM for kilogram, LBR for pound
+
+Note 1: You can indicate additional information in the rdfs:label of the gr:QuantitativeValueFloat node.
+Note 2: You may also link to a gr:QualitativeValue node that provides additional information using gr:valueReference.
+Note 3: Note that you can use gr:hasMinValueFloat and gr:hasMaxValueFloat to indicate ranges.</rdfs:comment>
+        <rdfs:seeAlso rdf:resource="&wiki;Towing"/>
+        <rdfs:domain rdf:resource="&auto;MotorizedRoadVehicle"/>
+        <rdfs:range rdf:resource="&gr;QuantitativeValueFloat"/>
+        <rdfs:subPropertyOf rdf:resource="&gr;quantitativeProductOrServiceProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#torque -->
+
+    <owl:ObjectProperty rdf:about="&auto;torque">
+        <rdfs:label xml:lang="en">torque (0..*)</rdfs:label>
+        <rdfs:comment xml:lang="en">The torque (turning force) of an engine
+Typical unit code(s): NU for newton metre (N m), F17 for pound-force per foot, or F48 for pound-force per inch</rdfs:comment>
+        <rdfs:domain rdf:resource="&gr;ProductOrService"/>
+        <rdfs:range rdf:resource="&gr;QuantitativeValueFloat"/>
+        <rdfs:subPropertyOf rdf:resource="&gr;quantitativeProductOrServiceProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#totalPayable -->
+
+    <owl:ObjectProperty rdf:about="&auto;totalPayable">
+        <rdfs:label xml:lang="en">Total Payable</rdfs:label>
+        <rdfs:comment xml:lang="en">Indicates the total payable for the financing</rdfs:comment>
+        <rdfs:domain rdf:resource="&auto;Financing"/>
+        <rdfs:range rdf:resource="&gr;PriceSpecification"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#trailerWeight -->
+
+    <owl:ObjectProperty rdf:about="&auto;trailerWeight">
+        <rdfs:label xml:lang="en">trailerWeight (0..1)</rdfs:label>
+        <rdfs:comment xml:lang="en">The permited weight of a trailer attached to the vehicle.
+Typical unit code(s): KGM for kilogram, LBR for pound
+
+Note 1: You can indicate additional information in the rdfs:label of the gr:QuantitativeValueFloat node.
+Note 2: You may also link to a gr:QualitativeValue node that provides additional information using gr:valueReference.
+Note 3: Note that you can use gr:hasMinValueFloat and gr:hasMaxValueFloat to indicate ranges.</rdfs:comment>
+        <rdfs:seeAlso rdf:resource="&wiki;Towing"/>
+        <rdfs:domain rdf:resource="&auto;MotorizedRoadVehicle"/>
+        <rdfs:range rdf:resource="&gr;QuantitativeValueFloat"/>
+        <rdfs:subPropertyOf rdf:resource="&gr;quantitativeProductOrServiceProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#transmission -->
+
+    <owl:ObjectProperty rdf:about="&auto;transmission">
+        <rdfs:label xml:lang="en">transmission</rdfs:label>
+        <rdfs:comment xml:lang="en">The type of component used for transmitting the power from a rotating power source to the wheels or propeller(s) (&quot;gearbox&quot; for cars).
+
+Use DBPedia resources to indicate the transmission type, if possible. Popular identifiers are
+  http://dbpedia.org/resource/Manual_transmission
+  http://dbpedia.org/resource/Automatic_transmission
+
+If you cannot find a suitable identifier in DBPedia, define your own as an instance of auto:TransmissionTypeValue.</rdfs:comment>
+        <rdfs:seeAlso rdf:resource="http://dbpedia.org/page/Transmission_%28mechanics%29"/>
+        <rdfs:seeAlso rdf:resource="&wiki;Transmission_%28mechanics%29"/>
+        <rdfs:range rdf:resource="&auto;TransmissionTypeValue"/>
+        <rdfs:subPropertyOf rdf:resource="&gr;qualitativeProductOrServiceProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&auto;Bicycle"/>
+                    <rdf:Description rdf:about="&auto;Boat"/>
+                    <rdf:Description rdf:about="&auto;MotorizedRoadVehicle"/>
+                    <rdf:Description rdf:about="&auto;Quadracycle"/>
+                    <rdf:Description rdf:about="&auto;Ship"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#weight -->
+
+    <owl:ObjectProperty rdf:about="&auto;weight">
+        <rdfs:label xml:lang="en">weight (0..1)</rdfs:label>
+        <rdfs:comment xml:lang="en">The weight of the empty vehicle (&quot;curb weight&quot; for cars), i.e. with standard equipment, all necessary operating consumables (e.g. motor oil and coolant), a full tank of fuel, while not loaded with either passengers or cargo
+Typical unit code(s): KGM for kilogram, LBR for pound
+
+Note 1: There are many varying definitions in place for specifying the weight of a vehicle. E.g., the many European Union car manufacturers include the weight of a 75 kilogram driver to follow European Directive 95/48/EC. Make sure to subtract those 75 kg when converting respective data.
+Note 2: You can indicate additional information in the rdfs:label of the gr:QuantitativeValueFloat node.
+Note 3: You may also link to a gr:QualitativeValue node that provides additional information using gr:valueReference.
+Note 4: Note that you can use gr:hasMinValueFloat and gr:hasMaxValueFloat to indicate ranges.</rdfs:comment>
+        <rdfs:seeAlso rdf:resource="&wiki;Curb_weight"/>
+        <rdfs:domain rdf:resource="&gr;ProductOrService"/>
+        <rdfs:range rdf:resource="&gr;QuantitativeValueFloat"/>
+        <rdfs:subPropertyOf rdf:resource="&gr;quantitativeProductOrServiceProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#weightTotal -->
+
+    <owl:ObjectProperty rdf:about="&auto;weightTotal">
+        <rdfs:label xml:lang="en">weightTotal (0..1)</rdfs:label>
+        <rdfs:comment xml:lang="en">The permited total weight of the loaded vehicle, including passengers and cargo and the weight of the empty vehicle
+Typical unit code(s): KGM for kilogram, LBR for pound
+    
+Note 1: You can indicate additional information in the rdfs:label of the gr:QuantitativeValueFloat node.
+Note 2: You may also link to a gr:QualitativeValue node that provides additional information using gr:valueReference.
+Note 3: Note that you can use gr:hasMinValueFloat and gr:hasMaxValueFloat to indicate ranges.</rdfs:comment>
+        <rdfs:domain rdf:resource="&gr;ProductOrService"/>
+        <rdfs:range rdf:resource="&gr;QuantitativeValueFloat"/>
+        <rdfs:subPropertyOf rdf:resource="&gr;quantitativeProductOrServiceProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#wheelbase -->
+
+    <owl:ObjectProperty rdf:about="&auto;wheelbase">
+        <rdfs:label xml:lang="en">wheelbase (0..1)</rdfs:label>
+        <rdfs:comment xml:lang="en">The distance between the centers of the front and rear wheels
+Typical unit code(s): CMT for centimeters, MTR for meters, INH for inches, FOT for foot/feet</rdfs:comment>
+        <rdfs:seeAlso rdf:resource="&wiki;Wheelbase"/>
+        <rdfs:range rdf:resource="&gr;QuantitativeValueFloat"/>
+        <rdfs:subPropertyOf rdf:resource="&gr;quantitativeProductOrServiceProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&auto;Bicycle"/>
+                    <rdf:Description rdf:about="&auto;MotorizedRoadVehicle"/>
+                    <rdf:Description rdf:about="&auto;Quadracycle"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#width -->
+
+    <owl:ObjectProperty rdf:about="&auto;width">
+        <rdfs:label xml:lang="en">width (0..1)</rdfs:label>
+        <rdfs:comment xml:lang="en">The outer width of the vehicle. Note that you can use gr:hasMinValueFloat and gr:hasMaxValueFloat to indicate ranges.
+Typical unit code(s): CMT for centimeters, MTR for meters, INH for inches, FOT for foot/feet</rdfs:comment>
+        <rdfs:domain rdf:resource="&gr;ProductOrService"/>
+        <rdfs:range rdf:resource="&gr;QuantitativeValueFloat"/>
+        <rdfs:subPropertyOf rdf:resource="&gr;quantitativeProductOrServiceProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#widthExcludingDoorMirrors -->
+
+    <owl:ObjectProperty rdf:about="&auto;widthExcludingDoorMirrors">
+        <rdfs:label xml:lang="en">widthExcludingDoorMirrors (0..1)</rdfs:label>
+        <rdfs:comment xml:lang="en">The outer width of the vehicle, excluding door mirrors. Note that you can use gr:hasMinValueFloat and gr:hasMaxValueFloat to indicate ranges.
+Typical unit code(s): CMT for centimeters, MTR for meters, INH for inches, FOT for foot/feet</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&auto;width"/>
+        <rdfs:domain rdf:resource="&gr;ProductOrService"/>
+        <rdfs:range rdf:resource="&gr;QuantitativeValueFloat"/>
+        <rdfs:subPropertyOf rdf:resource="&gr;quantitativeProductOrServiceProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#widthWithDoorsOpen -->
+
+    <owl:ObjectProperty rdf:about="&auto;widthWithDoorsOpen">
+        <rdfs:label xml:lang="en">widthWithDoorsOpen (0..1)</rdfs:label>
+        <rdfs:comment xml:lang="en">The outer width of the vehicle with the doors open. Note that you can use gr:hasMinValueFloat and gr:hasMaxValueFloat to indicate ranges.
+Typical unit code(s): CMT for centimeters, MTR for meters, INH for inches, FOT for foot/feet</rdfs:comment>
+        <rdfs:domain rdf:resource="&gr;ProductOrService"/>
+        <rdfs:range rdf:resource="&gr;QuantitativeValueFloat"/>
+        <rdfs:subPropertyOf rdf:resource="&gr;quantitativeProductOrServiceProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/goodrelations/v1#qualitativeProductOrServiceProperty -->
+
+    <owl:ObjectProperty rdf:about="&gr;qualitativeProductOrServiceProperty">
+        <rdfs:label xml:lang="en">Qualitative Product Or Service Property</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/goodrelations/v1#quantitativeProductOrServiceProperty -->
+
+    <owl:ObjectProperty rdf:about="&gr;quantitativeProductOrServiceProperty">
+        <rdfs:label xml:lang="en">Quantitative Product Or Service Property</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/goodrelations/v1#valueReference -->
+
+    <owl:ObjectProperty rdf:about="&gr;valueReference">
+        <rdfs:label xml:lang="en">Value Reference</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#ACRISSCode -->
+
+    <owl:DatatypeProperty rdf:about="&auto;ACRISSCode">
+        <rdfs:label xml:lang="en">ACRISSCode (0..1)</rdfs:label>
+        <rdfs:comment xml:lang="en">The ACRISS Car Classification Code is a code used by many car rental companies, for classifying vehicles. ACRISS stands for Association of Car Rental Industry Systems and Standards.</rdfs:comment>
+        <rdfs:seeAlso rdf:resource="&dbpedia;ACRISS_Car_Classification_Code"/>
+        <rdfs:seeAlso rdf:resource="&wiki;ACRISS_Car_Classification_Code"/>
+        <rdfs:domain rdf:resource="&auto;MotorizedRoadVehicle"/>
+        <rdfs:subPropertyOf rdf:resource="&gr;datatypeProductOrServiceProperty"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#VIN -->
+
+    <owl:DatatypeProperty rdf:about="&auto;VIN">
+        <rdfs:label xml:lang="en">VIN [Vehicle Identification Number] (0..1)</rdfs:label>
+        <rdfs:comment xml:lang="en">A unique serial number used by the automotive industry to identify individual motor vehicles</rdfs:comment>
+        <rdfs:seeAlso rdf:resource="&dbpedia;Vehicle_Identification_Number"/>
+        <rdfs:seeAlso rdf:resource="&wiki;Vehicle_Identification_Number"/>
+        <rdfs:domain rdf:resource="&auto;MotorizedRoadVehicle"/>
+        <rdfs:subPropertyOf rdf:resource="&gr;serialNumber"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#apr -->
+
+    <owl:DatatypeProperty rdf:about="&auto;apr">
+        <rdfs:label xml:lang="en">apr (0..1)</rdfs:label>
+        <rdfs:comment xml:lang="en">Annual percentage rate. Note: 7.5 % is encoded as &quot;7.5&quot;^^xsd:decimal, not &quot;0.075&quot;^^xsd:decimal.</rdfs:comment>
+        <rdfs:domain rdf:resource="&auto;Financing"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#capCode -->
+
+    <owl:DatatypeProperty rdf:about="&auto;capCode">
+        <rdfs:label xml:lang="en">capCode (0..1)</rdfs:label>
+        <rdfs:comment xml:lang="en">The CAP code</rdfs:comment>
+        <rdfs:domain rdf:resource="&auto;Derivative"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#color -->
+
+    <owl:DatatypeProperty rdf:about="&auto;color">
+        <rdfs:label xml:lang="en">color (0..*)</rdfs:label>
+        <rdfs:comment xml:lang="en">The color of the vehicle</rdfs:comment>
+        <rdfs:domain rdf:resource="&gr;ProductOrService"/>
+        <rdfs:subPropertyOf rdf:resource="&gr;datatypeProductOrServiceProperty"/>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#condition -->
+
+    <owl:DatatypeProperty rdf:about="&auto;condition">
+        <rdfs:label xml:lang="en">condition (0..*)</rdfs:label>
+        <rdfs:comment xml:lang="en">A textual description of the condition of the vehicle. This property should be mainly used with gr:ActualProductOrServiceInstance.</rdfs:comment>
+        <rdfs:domain rdf:resource="&gr;ProductOrService"/>
+        <rdfs:subPropertyOf rdf:resource="&gr;datatypeProductOrServiceProperty"/>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#cylinderTypeId -->
+
+    <owl:DatatypeProperty rdf:about="&auto;cylinderTypeId">
+        <rdfs:label xml:lang="en">cylinderTypeId (0..1)</rdfs:label>
+        <rdfs:comment xml:lang="en">The Volkswagen-specific identifier for the cylinder type of a vehicle or engine</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&auto;Engine"/>
+                    <rdf:Description rdf:about="&auto;MotorizedRoadVehicle"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#damages -->
+
+    <owl:DatatypeProperty rdf:about="&auto;damages">
+        <rdfs:label xml:lang="en">damages (0..*)</rdfs:label>
+        <rdfs:comment xml:lang="en">A textual description of known damages, both repaired and unrepaired.
+
+Note: This property should be used with gr:ActualProductOrServiceInstance (when offering a vehicle) or gr:ProductOrServicesSomeInstancesPlaceholder (when seeking a vehicle using gr:seeks) only.</rdfs:comment>
+        <rdfs:domain rdf:resource="&gr;ProductOrService"/>
+        <rdfs:subPropertyOf rdf:resource="&gr;datatypeProductOrServiceProperty"/>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#dateLaunched -->
+
+    <owl:DatatypeProperty rdf:about="&auto;dateLaunched">
+        <rdfs:label xml:lang="en">dateLaunched (0..1)</rdfs:label>
+        <rdfs:comment xml:lang="en">The date of the official launch of the car model</rdfs:comment>
+        <rdfs:domain rdf:resource="&gr;ProductOrService"/>
+        <rdfs:subPropertyOf rdf:resource="&gr;datatypeProductOrServiceProperty"/>
+        <rdfs:range rdf:resource="&xsd;date"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#dhCode -->
+
+    <owl:DatatypeProperty rdf:about="&auto;dhCode">
+        <rdfs:label xml:lang="en">dhCode (0..1)</rdfs:label>
+        <rdfs:comment xml:lang="en">The DH code</rdfs:comment>
+        <rdfs:domain rdf:resource="http://iurianu.rocks/wp-content/uploads/cdn/auto.owl#Derivative"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#displayPos -->
+
+    <owl:DatatypeProperty rdf:about="&auto;displayPos">
+        <rdfs:label xml:lang="en">displayPos (0..1)</rdfs:label>
+        <rdfs:comment xml:lang="en">The position at which the option or element should be listed in a menu or user dialog, lower numbers come first.
+The main usage of this property are coo:SpecItemCollection and coo:ChoiceOrComponent, but it is possible to apply it to any owl:Class.
+
+Note: It is recommended to rely on this property only for data originating from a single RDF graph; otherwise, unpredictable results are possible.</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;int"/>
+        <rdfs:domain rdf:resource="&owl;Class"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#emissions -->
+
+    <owl:DatatypeProperty rdf:about="&auto;emissions">
+        <rdfs:label xml:lang="en">emissions (0..1)</rdfs:label>
+        <rdfs:comment xml:lang="en">The CO2 emissions in g/km</rdfs:comment>
+        <rdfs:domain rdf:resource="&auto;MotorizedRoadVehicle"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#engineName -->
+
+    <owl:DatatypeProperty rdf:about="&auto;engineName">
+        <rdfs:label xml:lang="en">engineName (0..*)</rdfs:label>
+        <rdfs:comment xml:lang="en">A short text indicating the engine(s) of the vehicle</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&gr;datatypeProductOrServiceProperty"/>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&auto;Bicycle"/>
+                    <rdf:Description rdf:about="&auto;Boat"/>
+                    <rdf:Description rdf:about="&auto;MotorizedRoadVehicle"/>
+                    <rdf:Description rdf:about="&auto;Ship"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#finalPayment -->
+
+    <owl:DatatypeProperty rdf:about="&auto;finalPayment">
+        <rdfs:label xml:lang="en">finalPayment (0..1)</rdfs:label>
+        <rdfs:comment xml:lang="en">Indicates the final payment for the financing</rdfs:comment>
+        <rdfs:domain rdf:resource="&auto;Financing"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#firstRegistration -->
+
+    <owl:DatatypeProperty rdf:about="&auto;firstRegistration">
+        <rdfs:label xml:lang="en">firstRegistration (0..1)</rdfs:label>
+        <rdfs:comment xml:lang="en">The date of the first registration of the vehicle with the respective public authorities. This property should be used mainly with gr:ActualProductOrServiceInstance.</rdfs:comment>
+        <rdfs:domain rdf:resource="&gr;ProductOrService"/>
+        <rdfs:subPropertyOf rdf:resource="&gr;datatypeProductOrServiceProperty"/>
+        <rdfs:range rdf:resource="&xsd;date"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#fuelInjectionTypeId -->
+
+    <owl:DatatypeProperty rdf:about="&auto;fuelInjectionTypeId">
+        <rdfs:label xml:lang="en">fuelInjectionTypeId (0..1)</rdfs:label>
+        <rdfs:comment xml:lang="en">The Volkswagen-specific identifier for the fuel injection type of a vehicle or engine</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&auto;Engine"/>
+                    <rdf:Description rdf:about="&auto;MotorizedRoadVehicle"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#gearboxTypeId -->
+
+    <owl:DatatypeProperty rdf:about="&auto;gearboxTypeId">
+        <rdfs:label xml:lang="en">gearboxTypeId (0..1)</rdfs:label>
+        <rdfs:comment xml:lang="en">The Volkswagen-specific gearbox type ID</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#insuranceGroup -->
+
+    <owl:DatatypeProperty rdf:about="&auto;insuranceGroup">
+        <rdfs:label xml:lang="en">insuranceGroup (0..1)</rdfs:label>
+        <rdfs:comment xml:lang="en">The insurance group code</rdfs:comment>
+        <rdfs:domain rdf:resource="&auto;MotorizedRoadVehicle"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#insuranceGroup50 -->
+
+    <owl:DatatypeProperty rdf:about="&auto;insuranceGroup50">
+        <rdfs:label xml:lang="en">insuranceGroup50 (0..1)</rdfs:label>
+        <rdfs:comment xml:lang="en">The insurance group 50 code </rdfs:comment>
+        <rdfs:domain rdf:resource="&auto;MotorizedRoadVehicle"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#manufacturerCode -->
+
+    <owl:DatatypeProperty rdf:about="&auto;manufacturerCode">
+        <rdfs:label xml:lang="en">manufacturerCode (0..1)</rdfs:label>
+        <rdfs:comment xml:lang="en">The manufacturer code</rdfs:comment>
+        <rdfs:domain rdf:resource="&gr;ProductOrService"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#marketingName -->
+
+    <owl:DatatypeProperty rdf:about="&auto;marketingName">
+        <rdfs:label xml:lang="en">marketingName (0..1)</rdfs:label>
+        <rdfs:comment xml:lang="en">The name of the object for marketing purposes</rdfs:comment>
+        <rdfs:range rdf:resource="&rdf;PlainLiteral"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&auto;Financing"/>
+                    <rdf:Description rdf:about="&gr;Offering"/>
+                    <rdf:Description rdf:about="&gr;ProductOrService"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#max -->
+
+    <owl:DatatypeProperty rdf:about="&auto;max">
+        <rdfs:label xml:lang="en">max (0..1)</rdfs:label>
+        <rdfs:comment xml:lang="en">The maximum number of coo:ChoiceOrComponent entities that can be selected for a valid configuration</rdfs:comment>
+        <rdfs:domain rdf:resource="&auto;SpecItemCollection"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#min -->
+
+    <owl:DatatypeProperty rdf:about="&auto;min">
+        <rdfs:label xml:lang="en">min (0..1)</rdfs:label>
+        <rdfs:comment xml:lang="en">The minimum number of coo:ChoiceOrComponent entities that must be selected for a valid configuration</rdfs:comment>
+        <rdfs:domain rdf:resource="&auto;SpecItemCollection"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#modelDate -->
+
+    <owl:DatatypeProperty rdf:about="&auto;modelDate">
+        <rdfs:label xml:lang="en">modelDate (0..1)</rdfs:label>
+        <rdfs:comment xml:lang="en">The release date of a vehicle model (often used to differentiate versions of the same make and model)</rdfs:comment>
+        <rdfs:domain rdf:resource="&gr;ProductOrService"/>
+        <rdfs:subPropertyOf rdf:resource="&gr;datatypeProductOrServiceProperty"/>
+        <rdfs:range rdf:resource="&xsd;date"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#noOfMonthlyPayments -->
+
+    <owl:DatatypeProperty rdf:about="&auto;noOfMonthlyPayments">
+        <rdfs:label xml:lang="en">noOfMonthlyPayments (0..1)</rdfs:label>
+        <rdfs:comment xml:lang="en">The number of monthly payments</rdfs:comment>
+        <rdfs:domain rdf:resource="&auto;Financing"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#offerPromoCode -->
+
+    <owl:DatatypeProperty rdf:about="&auto;offerPromoCode">
+        <rdfs:label xml:lang="en">offerPromoCode (0..1)</rdfs:label>
+        <rdfs:comment xml:lang="en">The code for a promotional offer</rdfs:comment>
+        <rdfs:domain rdf:resource="&gr;Offering"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#productCode -->
+
+    <owl:DatatypeProperty rdf:about="&auto;productCode">
+        <rdfs:label xml:lang="en">productCode (0..1)</rdfs:label>
+        <rdfs:comment xml:lang="en">The Volkswagen-specific product code for the vehicle model, choice, component, spare part, or service</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&auto;ChoiceOrComponent"/>
+                    <rdf:Description rdf:about="&auto;MotorizedRoadVehicle"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#productionDate -->
+
+    <owl:DatatypeProperty rdf:about="&auto;productionDate">
+        <rdfs:label xml:lang="en">productionDate (0..1)</rdfs:label>
+        <rdfs:comment xml:lang="en">The date of production of the vehicle. This property should be used mainly with gr:ActualProductOrServiceInstance.</rdfs:comment>
+        <rdfs:domain rdf:resource="&gr;ProductOrService"/>
+        <rdfs:subPropertyOf rdf:resource="&gr;datatypeProductOrServiceProperty"/>
+        <rdfs:range rdf:resource="&xsd;date"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#rentalUsage -->
+
+    <owl:DatatypeProperty rdf:about="&auto;rentalUsage">
+        <rdfs:label xml:lang="en">rentalUsage (0..1)</rdfs:label>
+        <rdfs:comment xml:lang="en">Indicates whether the vehicle has been used for commercial rental. The legislation in many countries requires this information to be revealed when offering a car for sale. 
+
+Note 1: This property should be used with gr:ActualProductOrServiceInstance (when offering a vehicle) or gr:ProductOrServicesSomeInstancesPlaceholder (when seeking a vehicle using gr:seeks) only.
+Note 2: This property is relevant mainly for offers to SELL the vehicle (gr:hasBusinessFunction gr:Sell).</rdfs:comment>
+        <rdfs:domain rdf:resource="&gr;ProductOrService"/>
+        <rdfs:subPropertyOf rdf:resource="&gr;datatypeProductOrServiceProperty"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#shortSubtitle -->
+
+    <owl:DatatypeProperty rdf:about="&auto;shortSubtitle">
+        <rdfs:label xml:lang="en">shortSubtitle (0..1)</rdfs:label>
+        <rdfs:comment xml:lang="en">The short subtitle for a vehicle, component, offer, or financing option</rdfs:comment>
+        <rdfs:range rdf:resource="&rdf;PlainLiteral"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&auto;Financing"/>
+                    <rdf:Description rdf:about="&gr;Offering"/>
+                    <rdf:Description rdf:about="&gr;ProductOrService"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#shortTitle -->
+
+    <owl:DatatypeProperty rdf:about="&auto;shortTitle">
+        <rdfs:label xml:lang="en">shortTitle (0..1)</rdfs:label>
+        <rdfs:comment xml:lang="en">The short title for a vehicle, component, offer, or financing option</rdfs:comment>
+        <rdfs:range rdf:resource="&rdf;PlainLiteral"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&auto;Financing"/>
+                    <rdf:Description rdf:about="&gr;Offering"/>
+                    <rdf:Description rdf:about="&gr;ProductOrService"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#subtitle -->
+
+    <owl:DatatypeProperty rdf:about="&auto;subtitle">
+        <rdfs:label xml:lang="en">subtitle (0..1)</rdfs:label>
+        <rdfs:comment xml:lang="en">The subtitle for a vehicle, component, offer, or financing option</rdfs:comment>
+        <rdfs:range rdf:resource="&rdf;PlainLiteral"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&auto;Financing"/>
+                    <rdf:Description rdf:about="&gr;Offering"/>
+                    <rdf:Description rdf:about="&gr;ProductOrService"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#termsAndConditions -->
+
+    <owl:DatatypeProperty rdf:about="&auto;termsAndConditions">
+        <rdfs:label xml:lang="en">termsAndConditions (0..1)</rdfs:label>
+        <rdfs:comment xml:lang="en">Terms and conditions of the service, offer, or financing option</rdfs:comment>
+        <rdfs:range rdf:resource="&rdf;PlainLiteral"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&auto;Financing"/>
+                    <rdf:Description rdf:about="&auto;Service"/>
+                    <rdf:Description rdf:about="&gr;Offering"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#valid -->
+
+    <owl:DatatypeProperty rdf:about="&auto;valid">
+        <rdfs:label xml:lang="en">valid (1..1)</rdfs:label>
+        <rdfs:comment xml:lang="en">Indicates whether the attached set of choices is a valid (true) or invalid (false) configuration for the Derivative</rdfs:comment>
+        <rdfs:domain rdf:resource="&auto;ConfigurationInfo"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#ved -->
+
+    <owl:DatatypeProperty rdf:about="&auto;ved">
+        <rdfs:label xml:lang="en">ved (0..1)</rdfs:label>
+        <rdfs:comment xml:lang="en">The VED code</rdfs:comment>
+        <rdfs:domain rdf:resource="&gr;ProductOrService"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/goodrelations/v1#datatypeProductOrServiceProperty -->
+
+    <owl:DatatypeProperty rdf:about="&gr;datatypeProductOrServiceProperty"/>
+    
+
+
+    <!-- http://purl.org/goodrelations/v1#serialNumber -->
+
+    <owl:DatatypeProperty rdf:about="&gr;serialNumber"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl#Derivative -->
+
+    <owl:Class rdf:about="http://iurianu.rocks/wp-content/uploads/cdn/auto.owl#Derivative"/>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#AudioAndNavigation -->
+
+    <owl:Class rdf:about="&auto;AudioAndNavigation">
+        <rdfs:label xml:lang="en">Audio and Navigation Choice or Component</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&auto;ChoiceOrComponent"/>
+        <hasID>1</hasID>
+        <rdfs:comment xml:lang="en">The class of audio and navigation choices or components (CD/DVD/SatNav, a &quot;MonoSelectGroup&quot; in automotive terminology), VW ID: 1</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#Automobile -->
+
+    <owl:Class rdf:about="&auto;Automobile">
+        <rdfs:label xml:lang="en">Automobile (gr:ProductOrService)</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&auto;MotorizedRoadVehicle"/>
+        <rdfs:comment xml:lang="en">An automobile, motor car, or car is a wheeled motor vehicle used for transporting passengers, which also carries its own engine or motor.</rdfs:comment>
+        <rdfs:seeAlso rdf:resource="&dbpedia;Automobile"/>
+        <rdfs:seeAlso rdf:resource="&wiki;Automobile"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#BaseModel -->
+
+    <owl:Class rdf:about="&auto;BaseModel">
+        <rdfs:label xml:lang="en">BaseModel</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gr;ProductOrServiceModel"/>
+        <owl:disjointWith rdf:resource="&auto;ChoiceOrComponent"/>
+        <owl:disjointWith rdf:resource="&auto;CompleteCarModel"/>
+        <owl:disjointWith rdf:resource="&auto;ConfigurationInfo"/>
+        <owl:disjointWith rdf:resource="&auto;Derivative"/>
+        <owl:disjointWith rdf:resource="&auto;PropertySpecification"/>
+        <owl:disjointWith rdf:resource="&auto;RelativePriceSpecification"/>
+        <owl:disjointWith rdf:resource="&auto;SpecItemCollection"/>
+        <owl:disjointWith rdf:resource="&auto;Trim"/>
+        <rdfs:comment xml:lang="en">A Base Model is an abstract entity specifying the basic features of a group of vehicles.
+
+Examples: VW Golf, VW Polo, VW Passat</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#Bicycle -->
+
+    <owl:Class rdf:about="&auto;Bicycle">
+        <rdfs:label xml:lang="en">Bicycle (gr:ProductOrService)</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&auto;Vehicle"/>
+        <rdfs:comment xml:lang="en">A bicycle or bike is a pedal-driven, human-powered, single-track vehicle, having two wheels attached to a frame, one behind the other. Some bicycles have a small combustion or electric engine that assists with the pedaling.</rdfs:comment>
+        <rdfs:seeAlso rdf:resource="&dbpedia;Bicycle"/>
+        <rdfs:seeAlso rdf:resource="&wiki;Bicycle"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#Boat -->
+
+    <owl:Class rdf:about="&auto;Boat">
+        <rdfs:label xml:lang="en">Boat (gr:ProductOrService)</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&auto;Watercraft"/>
+        <rdfs:comment xml:lang="en">A boat is a watercraft of modest size designed to float or plane, to provide passage across water.</rdfs:comment>
+        <rdfs:seeAlso rdf:resource="&dbpedia;Boat"/>
+        <rdfs:seeAlso rdf:resource="&wiki;Boat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#BodyStyleValue -->
+
+    <owl:Class rdf:about="&auto;BodyStyleValue">
+        <rdfs:label xml:lang="en">Body style value (the class of predefined values)</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gr;QualitativeValue"/>
+        <rdfs:comment xml:lang="en">A value indicating the body style of a vehicle.
+
+You can safely use any reasonable DBPedia URI, e.g. 
+  http://dbpedia.org/resource/Convertible
+  http://dbpedia.org/resource/Hatchback
+  http://dbpedia.org/resource/Station_wagon
+  http://dbpedia.org/resource/Sport_utility_vehicle
+  http://dbpedia.org/resource/Roadster</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#BusOrCoach -->
+
+    <owl:Class rdf:about="&auto;BusOrCoach">
+        <rdfs:label xml:lang="en">Bus or coach (gr:ProductOrService)</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&auto;MotorizedRoadVehicle"/>
+        <rdfs:comment xml:lang="en">A bus (also omnibus or autobus) is a road vehicle designed to carry passengers. Buses have a capacity as high as 300 passengers and are widely used for public transportation. 
+Coaches are luxury busses, usually in service for long distance travel.</rdfs:comment>
+        <rdfs:seeAlso rdf:resource="http://dbpedia.org/page/Coach_%28vehicle%29"/>
+        <rdfs:seeAlso rdf:resource="&dbpedia;Bus"/>
+        <rdfs:seeAlso rdf:resource="&wiki;Bus"/>
+        <rdfs:seeAlso rdf:resource="&wiki;Coach_%28vehicle%29"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#Canoe -->
+
+    <owl:Class rdf:about="&auto;Canoe">
+        <rdfs:label xml:lang="en">Canoe (gr:ProductOrService)</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&auto;Boat"/>
+        <rdfs:comment xml:lang="en">A canoe (American English) or Canadian canoe (British English) is a small narrow boat, typically human-powered, though it may also be powered by sails or small electric or gas motors.</rdfs:comment>
+        <rdfs:seeAlso rdf:resource="&dbpedia;Canoe"/>
+        <rdfs:seeAlso rdf:resource="&wiki;Canoe"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#ChoiceOrComponent -->
+
+    <owl:Class rdf:about="&auto;ChoiceOrComponent">
+        <rdfs:label xml:lang="en">ChoiceOrComponent</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gr;ProductOrServiceModel"/>
+        <owl:disjointWith rdf:resource="&auto;CompleteCarModel"/>
+        <owl:disjointWith rdf:resource="&auto;ConfigurationInfo"/>
+        <owl:disjointWith rdf:resource="&auto;Derivative"/>
+        <owl:disjointWith rdf:resource="&auto;PropertySpecification"/>
+        <owl:disjointWith rdf:resource="&auto;RelativePriceSpecification"/>
+        <owl:disjointWith rdf:resource="&auto;SpecItemCollection"/>
+        <owl:disjointWith rdf:resource="&auto;Trim"/>
+        <rdfs:comment xml:lang="en">A Choice or Component is a component (e.g. engine), add-on, feature (color &quot;ocean blue&quot;), or service that can be chosen to be part of a final vehicle configuration.
+    
+Example: Engine 1.6 l TDI, color ocean blue, trailer hitch</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#CompleteCarModel -->
+
+    <owl:Class rdf:about="&auto;CompleteCarModel">
+        <rdfs:label xml:lang="en">CompleteCarModel</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gr;ProductOrServiceModel"/>
+        <owl:disjointWith rdf:resource="&auto;ConfigurationInfo"/>
+        <owl:disjointWith rdf:resource="&auto;Derivative"/>
+        <owl:disjointWith rdf:resource="&auto;PropertySpecification"/>
+        <owl:disjointWith rdf:resource="&auto;RelativePriceSpecification"/>
+        <owl:disjointWith rdf:resource="&auto;SpecItemCollection"/>
+        <owl:disjointWith rdf:resource="&auto;Trim"/>
+        <rdfs:comment xml:lang="en">A Complete Car Model is an abstract entity specifying all features and configuration choices needed for actually producing a vehicle. In other words, it is the gr:ProductOrServiceModel (&quot;datasheet&quot;) for a completely configured vehicle.
+While a Complete Car Model can be defined indepently of a Base Model, Trim, or Derivative, it is usually based on a Derivative plus choices for all mandatory configurational options (coo:SpecItemCollection) of that Derivative.
+A Complete Car Model should be linked to its Derivative via gr:isVariantOf, if available.
+
+Example: VW Golf S 1.6 TDI 3door Manual in ocean blue with air-conditioning, CD player, trailer hitch, power steering, and power windows
+
+Note: A coo:CompleteCarModel is NOT an actual car, but a complete feature description of one or multiple actual cars.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#ConfigurationInfo -->
+
+    <owl:Class rdf:about="&auto;ConfigurationInfo">
+        <rdfs:label xml:lang="en">ConfigurationInfo</rdfs:label>
+        <owl:disjointWith rdf:resource="&auto;Derivative"/>
+        <owl:disjointWith rdf:resource="&auto;PropertySpecification"/>
+        <owl:disjointWith rdf:resource="&auto;RelativePriceSpecification"/>
+        <owl:disjointWith rdf:resource="&auto;SpecItemCollection"/>
+        <owl:disjointWith rdf:resource="&auto;Trim"/>
+        <rdfs:comment xml:lang="en">A Configuration Info is an abstract entity that gives information on whether a set of Choices Or Components results in a valid configuration. 
+Using coo:compatible, it is possible to indicate either compatibility (true) and incompatibility (false) so that modeling remains efficient, no matter whether most combinations are valid or whether most configurations are invalid.
+If no such statement is found, the validity of a configuration is unknown.
+
+Note: The two properties coo:includes and coo:dependsOn, attached to coo:ChoiceOrComponent, may contain additional information on the validity of configuration.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#DecorativeTrims -->
+
+    <owl:Class rdf:about="&auto;DecorativeTrims">
+        <rdfs:label xml:lang="en">Decorative Trims Choice or Component</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&auto;ChoiceOrComponent"/>
+        <hasID>8</hasID>
+        <rdfs:comment xml:lang="en">The class of decorative trim choices or components (a &quot;MonoSelectGroup&quot; in automotive terminology), VW ID: 8</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#Derivative -->
+
+    <owl:Class rdf:about="&auto;Derivative">
+        <rdfs:label xml:lang="en">Derivative</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gr;ProductOrServiceModel"/>
+        <owl:disjointWith rdf:resource="&auto;PropertySpecification"/>
+        <owl:disjointWith rdf:resource="&auto;RelativePriceSpecification"/>
+        <owl:disjointWith rdf:resource="&auto;SpecItemCollection"/>
+        <owl:disjointWith rdf:resource="&auto;Trim"/>
+        <rdfs:comment xml:lang="en">A Derivative is an abstract entity specifying (1) the basic features plus (2) a set of functional (e.g. engine type) and non-functional configuration (e.g. upholstery) choices of a group of vehicles.
+A Derivative has often a number of remaining configuration choices (coo:SpecItemCollection attached via coo:hasSpecItems), which will determine the actual properties of the resulting vehicle.      
+A Derivative should be linked to its Trim via gr:isVariantOf, if available.
+
+Examples: VW Golf S 1.6 TDI 3door Manual</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#DriveWheelConfigurationValue -->
+
+    <owl:Class rdf:about="&auto;DriveWheelConfigurationValue">
+        <rdfs:label xml:lang="en">Drive wheel configuration value (the class of predefined values)</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gr;QualitativeValue"/>
+        <rdfs:comment xml:lang="en">A value indicating which roadwheels will receive torque</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#EmissionStandardValue -->
+
+    <owl:Class rdf:about="&auto;EmissionStandardValue">
+        <rdfs:label xml:lang="en">Emission standard value (the class of predefined values)</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gr;QualitativeValue"/>
+        <rdfs:comment xml:lang="en">A value indicating the an emission standard.
+
+You can safely use any reasonable DBPedia URI, e.g. 
+  http://dbpedia.org/resource/Super_Ultra_Low_Emission_Vehicle
+  http://dbpedia.org/resource/Partial_zero-emissions_vehicle
+
+See also http://en.wikipedia.org/wiki/Emissions_standard.
+
+Unfortunately, there are no DBPedia identifiers for the popular Euro 1 - Euro 5 standards available.
+If you cannot find a suitable identifier in DBPedia, define your own as an instance of auto:EmissionStandardValue.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#Engine -->
+
+    <owl:Class rdf:about="&auto;Engine">
+        <rdfs:label xml:lang="en">Engine Choice or Component</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&auto;ChoiceOrComponent"/>
+        <rdfs:comment xml:lang="en">The class of engines as choices or components</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#EngineTypeValue -->
+
+    <owl:Class rdf:about="&auto;EngineTypeValue">
+        <rdfs:label xml:lang="en">Engine type value (the class of predefined values)</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gr;QualitativeValue"/>
+        <rdfs:comment xml:lang="en">A value indicating an engine type.
+
+You can safely use any reasonable DBPedia URI, e.g. 
+  http://dbpedia.org/resource/Two-stroke_engine
+  http://dbpedia.org/resource/Four-stroke_engine
+  http://dbpedia.org/resource/Wankel_engine
+  http://dbpedia.org/resource/Electric_motor</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#FeatureValue -->
+
+    <owl:Class rdf:about="&auto;FeatureValue">
+        <rdfs:label xml:lang="en">Feature value (the class of predefined values)</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gr;QualitativeValue"/>
+        <rdfs:comment xml:lang="en">A value indicating the features or accessories that are attached to or belong to a vehicle.
+
+You can safely use any reasonable DBPedia URI, e.g. 
+  http://dbpedia.org/resource/Anti-lock_braking_system
+  http://dbpedia.org/resource/Electronic_stability_control
+  http://dbpedia.org/resource/Armrest
+  http://dbpedia.org/resource/Spoiler_%28automotive%29
+  http://dbpedia.org/resource/CD_Changer
+  http://dbpedia.org/resource/Cup_holder
+  http://dbpedia.org/resource/Tow_hitch
+  http://dbpedia.org/resource/Power_window
+  http://dbpedia.org/resource/Power_steering
+  http://dbpedia.org/resource/Air_conditioner
+  http://dbpedia.org/resource/Child_safety_lock
+  http://dbpedia.org/resource/Parking_sensors</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#Financing -->
+
+    <owl:Class rdf:about="&auto;Financing">
+        <rdfs:label xml:lang="en">Financing (gr:PaymentMethod)</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gr;PaymentMethod"/>
+        <rdfs:comment xml:lang="en">An instance of this class is the specification of a payment option via staged payments.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#FuelQuantity -->
+
+    <owl:Class rdf:about="&auto;FuelQuantity">
+        <rdfs:label xml:lang="en">FuelQuantity</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gr;QuantitativeValueFloat"/>
+        <rdfs:comment xml:lang="en">A value indicating an amount of fuel</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#FuelTypeValue -->
+
+    <owl:Class rdf:about="&auto;FuelTypeValue">
+        <rdfs:label xml:lang="en">Fuel type value (the class of predefined values)</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gr;QualitativeValue"/>
+        <rdfs:comment xml:lang="en">A value indicating a type of fuel.
+ 
+You can safely use any reasonable DBPedia URI, e.g. 
+  http://dbpedia.org/resource/Gasoline
+  http://dbpedia.org/resource/Diesel
+  http://dbpedia.org/resource/Biodiesel
+  http://dbpedia.org/resource/Kerosene</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#GearboxTypeValue -->
+
+    <owl:Class rdf:about="&auto;GearboxTypeValue">
+        <rdfs:label xml:lang="en">Gearbox type value (the class of predefined values)</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gr;QualitativeValue"/>
+        <rdfs:comment xml:lang="en">A value indicating a gearbox type.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#Kayak -->
+
+    <owl:Class rdf:about="&auto;Kayak">
+        <rdfs:label xml:lang="en">Kayak (gr:ProductOrService)</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&auto;Watercraft"/>
+        <rdfs:comment xml:lang="en">A kayak is a small human-powered watercraft that traditionally has a covered deck, and one or more cockpits, each seating one paddler who strokes a double-bladed paddle. In this ontology, kayaks are considered watercrafts of their own kind, not a subtype of auto:Boat.</rdfs:comment>
+        <rdfs:seeAlso rdf:resource="&dbpedia;Kayak"/>
+        <rdfs:seeAlso rdf:resource="&wiki;Kayak"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#MotorBoat -->
+
+    <owl:Class rdf:about="&auto;MotorBoat">
+        <rdfs:label xml:lang="en">Motor boat (gr:ProductOrService)</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&auto;Boat"/>
+        <rdfs:comment xml:lang="en">A motorboat is a boat which is powered by an engine.</rdfs:comment>
+        <rdfs:seeAlso rdf:resource="&dbpedia;Motorboat"/>
+        <rdfs:seeAlso rdf:resource="&wiki;Motorboat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#Motorcycle -->
+
+    <owl:Class rdf:about="&auto;Motorcycle">
+        <rdfs:label xml:lang="en">Motorcycle (gr:ProductOrService)</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&auto;MotorizedRoadVehicle"/>
+        <rdfs:comment xml:lang="en">A motorcycle or motorbike is a single-track, two-wheeled motor vehicle.</rdfs:comment>
+        <rdfs:seeAlso rdf:resource="&dbpedia;Motorcycle"/>
+        <rdfs:seeAlso rdf:resource="&wiki;Motorcycle"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#MotorizedBicycle -->
+
+    <owl:Class rdf:about="&auto;MotorizedBicycle">
+        <rdfs:label xml:lang="en">Motorized bicycle (gr:ProductOrService)</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&auto;MotorizedRoadVehicle"/>
+        <rdfs:comment xml:lang="en">A motorized bicycle is a bicycle with an attached motor used to power the vehicle, or to assist with pedaling.</rdfs:comment>
+        <rdfs:seeAlso rdf:resource="&dbpedia;Motorized_bicycle"/>
+        <rdfs:seeAlso rdf:resource="&wiki;Motorized_bicycle"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#MotorizedRoadVehicle -->
+
+    <owl:Class rdf:about="&auto;MotorizedRoadVehicle">
+        <rdfs:label xml:lang="en">Motorized road vehicle (gr:ProductOrService)</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&auto;Vehicle"/>
+        <rdfs:comment xml:lang="en">A motorized road vehicle is a wheeled land vehicle whose main propulsion is provided by an engine or motor.</rdfs:comment>
+        <rdfs:seeAlso rdf:resource="&dbpedia;Motor_vehicle"/>
+        <rdfs:seeAlso rdf:resource="&wiki;Motor_vehicle"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#Paint -->
+
+    <owl:Class rdf:about="&auto;Paint">
+        <rdfs:label xml:lang="en">Paint Choice or Component</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&auto;ChoiceOrComponent"/>
+        <hasID>3</hasID>
+        <rdfs:comment xml:lang="en">The class of paint choices or components (a &quot;MonoSelectGroup&quot; in automotive terminology), VW ID: 3</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#Parking -->
+
+    <owl:Class rdf:about="&auto;Parking">
+        <rdfs:label xml:lang="en">Parking Choice or Component</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&auto;ChoiceOrComponent"/>
+        <hasID>7</hasID>
+        <rdfs:comment xml:lang="en">The class of parking-related choices or components (a &quot;MonoSelectGroup&quot; in automotive terminology), VW ID: 7</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#PropertySpecification -->
+
+    <owl:Class rdf:about="&auto;PropertySpecification">
+        <rdfs:label xml:lang="en">PropertySpeciﬁcation</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gr;ProductOrServiceModel"/>
+        <owl:disjointWith rdf:resource="&auto;RelativePriceSpecification"/>
+        <owl:disjointWith rdf:resource="&auto;SpecItemCollection"/>
+        <owl:disjointWith rdf:resource="&auto;Trim"/>
+        <rdfs:comment xml:lang="en">A Property Specification is an abstract entity specifying a set of properties for a vehicle that results from a single choice or the combination of two or more choices and that override the individual properties of the resulting vehicle.
+
+Example 1: Power steering and Air conditioning in combination reduce the available engine power from 90 kW to 89 kW.
+Example 2: Choosing the color option &quot;blue&quot; changes the color of the car to &quot;blue&quot;.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#Quadracycle -->
+
+    <owl:Class rdf:about="&auto;Quadracycle">
+        <rdfs:label xml:lang="en">Quadracycle (gr:ProductOrService) </rdfs:label>
+        <rdfs:subClassOf rdf:resource="&auto;Vehicle"/>
+        <rdfs:comment xml:lang="en">A quadracycle is a four-wheeled human-powered vehicle. It is also referred to as a quadricycle, quadcycle pedal car or four-wheeled bicycle.</rdfs:comment>
+        <rdfs:seeAlso rdf:resource="&dbpedia;Quadracycle"/>
+        <rdfs:seeAlso rdf:resource="&wiki;Quadracycle"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#RelativePriceSpecification -->
+
+    <owl:Class rdf:about="&auto;RelativePriceSpecification">
+        <rdfs:label xml:lang="en">RelativePriceSpeciﬁcation</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gr;PriceSpecification"/>
+        <owl:disjointWith rdf:resource="&auto;SpecItemCollection"/>
+        <owl:disjointWith rdf:resource="&auto;Trim"/>
+        <rdfs:comment xml:lang="en">A shortcut for indicating the effect of a choice or set of choices on the unit price. Use positive values for a surcharge and negative values for a deduction.
+
+Note: Price information should in general be attached to a gr:Offering node, not to a Base Model, Trim, Derivative, or Complete Car Model. Use this shortcut with care.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#Rickshaw -->
+
+    <owl:Class rdf:about="&auto;Rickshaw">
+        <rdfs:label xml:lang="en">Rickshaw (gr:ProductOrService)</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&auto;Vehicle"/>
+        <rdfs:comment xml:lang="en">A rickshaw (or ricksha) is a two-wheeled cart which seats one or two persons and is being drawn by a runner.</rdfs:comment>
+        <rdfs:seeAlso rdf:resource="&dbpedia;Rickshaw"/>
+        <rdfs:seeAlso rdf:resource="&wiki;Rickshaw"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#Roofs -->
+
+    <owl:Class rdf:about="&auto;Roofs">
+        <rdfs:label xml:lang="en">Roofs Choice or Component</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&auto;ChoiceOrComponent"/>
+        <hasID>5</hasID>
+        <rdfs:comment xml:lang="en">The class of roof choices or components (a &quot;MonoSelectGroup&quot; in automotive terminology), VW ID: 5</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#SailingBoat -->
+
+    <owl:Class rdf:about="&auto;SailingBoat">
+        <rdfs:label xml:lang="en">Sailing boat (gr:ProductOrService)</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&auto;Boat"/>
+        <rdfs:comment xml:lang="en">A sailboat or sailing boat is a boat propelled partly or entirely by sails.</rdfs:comment>
+        <rdfs:seeAlso rdf:resource="&dbpedia;Sailboat"/>
+        <rdfs:seeAlso rdf:resource="&wiki;Sailboat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#Seats -->
+
+    <owl:Class rdf:about="&auto;Seats">
+        <rdfs:label xml:lang="en">Seats Choice or Component</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&auto;ChoiceOrComponent"/>
+        <hasID>9</hasID>
+        <rdfs:comment xml:lang="en">The class of seat-related choices or components (a &quot;MonoSelectGroup&quot; in automotive terminology), VW ID: 9</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#Service -->
+
+    <owl:Class rdf:about="&auto;Service">
+        <rdfs:label xml:lang="en">Service</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gr;ProductOrService"/>
+        <rdfs:comment xml:lang="en">A service or service model. Typical instances are complementing services for a particular car.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#Ship -->
+
+    <owl:Class rdf:about="&auto;Ship">
+        <rdfs:label xml:lang="en">Ship (gr:ProductOrService)</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&auto;Watercraft"/>
+        <rdfs:comment xml:lang="en">A ship is a large watercraft that floats on water.</rdfs:comment>
+        <rdfs:seeAlso rdf:resource="&dbpedia;Ship"/>
+        <rdfs:seeAlso rdf:resource="&wiki;Ship"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#SpecItemCollection -->
+
+    <owl:Class rdf:about="&auto;SpecItemCollection">
+        <rdfs:label xml:lang="en">Spec Item Collection</rdfs:label>
+        <owl:disjointWith rdf:resource="&auto;Trim"/>
+        <rdfs:comment xml:lang="en">A Spec Item Collection is an entity collating multiple coo:ChoiceOrComponent options for a given coo:Derivative, i.e. the available configurational choices. 
+The default choice can be indicated using a coo:default link. All other choices are attached using coo:availableChoice. The number of coo:ChoiceOrComponent items that can / must be selected for a valid configuration are indicated via coo:min and coo:max.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#SpeedInterval -->
+
+    <owl:Class rdf:about="&auto;SpeedInterval">
+        <rdfs:label xml:lang="en">SpeedInterval</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gr;QuantitativeValueFloat"/>
+        <rdfs:comment xml:lang="en">A value indicating a speed interval, mostly for explaining auto:acceleration data</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#SteeringPositionValue -->
+
+    <owl:Class rdf:about="&auto;SteeringPositionValue">
+        <rdfs:label xml:lang="en">Steering Position Value (the class of predefined values)</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gr;QualitativeValue"/>
+        <rdfs:comment xml:lang="en">A value indicating a steering position</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#SteeringWheels -->
+
+    <owl:Class rdf:about="&auto;SteeringWheels">
+        <rdfs:label xml:lang="en">Steering Wheels Choice or Component</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&auto;ChoiceOrComponent"/>
+        <hasID>6</hasID>
+        <rdfs:comment xml:lang="en">The class of steering wheels choices or components (a &quot;MonoSelectGroup&quot; in automotive terminology), VW ID: 6</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#TrafficPattern -->
+
+    <owl:Class rdf:about="&auto;TrafficPattern">
+        <rdfs:label xml:lang="en">Traffic pattern value (the class of predefined values)</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gr;QualitativeValue"/>
+        <rdfs:comment xml:lang="en">A value indicating a traffic pattern, to be used as a reference for auto:fuelConsumption or auto:fuelEconomy</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#TransmissionTypeValue -->
+
+    <owl:Class rdf:about="&auto;TransmissionTypeValue">
+        <rdfs:label xml:lang="en">Transmission type value (the class of predefined values)</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gr;QualitativeValue"/>
+        <rdfs:comment xml:lang="en">A value indicating a type of transmission.
+
+You can safely use any reasonable DBPedia URI, e.g. 
+  http://dbpedia.org/resource/Manual_transmission
+  http://dbpedia.org/resource/Automatic_transmission</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#TransmissionTypeValueAutomatic -->
+
+    <owl:Class rdf:about="&auto;TransmissionTypeValueAutomatic">
+        <rdfs:label xml:lang="en">TransmissionTypeValueAutomatic</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&auto;TransmissionTypeValue"/>
+        <rdfs:comment xml:lang="en">The class of all automatic transmission types</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#TransmissionTypeValueManual -->
+
+    <owl:Class rdf:about="&auto;TransmissionTypeValueManual">
+        <rdfs:label xml:lang="en">TransmissionTypeValueManual</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&auto;TransmissionTypeValue"/>
+        <rdfs:comment xml:lang="en">The class of all manual transmission types</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#Trim -->
+
+    <owl:Class rdf:about="&auto;Trim">
+        <rdfs:label xml:lang="en">Trim</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gr;ProductOrServiceModel"/>
+        <rdfs:comment xml:lang="en">A Trim is an abstract entity specifying (1) the basic features plus (2) a set of configuration choices (mostly non-functional) of a group of vehicles. 
+A Trim should be linked to its Base Model via gr:isVariantOf, if available.
+
+Examples: VW Golf S, VW Polo Match, VW Passat SE</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#Truck -->
+
+    <owl:Class rdf:about="&auto;Truck">
+        <rdfs:label xml:lang="en">Truck (gr:ProductOrService)</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&auto;MotorizedRoadVehicle"/>
+        <rdfs:comment xml:lang="en">A lorry (British English) or truck (American English) is a motor vehicle designed to transport cargo.</rdfs:comment>
+        <rdfs:seeAlso rdf:resource="&dbpedia;Truck"/>
+        <rdfs:seeAlso rdf:resource="&wiki;Truck"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#Upholstery -->
+
+    <owl:Class rdf:about="&auto;Upholstery">
+        <rdfs:label xml:lang="en">Upholstery Choice or Component</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&auto;ChoiceOrComponent"/>
+        <hasID>4</hasID>
+        <rdfs:comment xml:lang="en">The class of upholstery choices or components (a &quot;MonoSelectGroup&quot; in automotive terminology), VW ID: 4</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#Van -->
+
+    <owl:Class rdf:about="&auto;Van">
+        <rdfs:label xml:lang="en">Van (gr:ProductOrService)</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&auto;MotorizedRoadVehicle"/>
+        <rdfs:comment xml:lang="en">A van is a kind of vehicle used for transporting  goods or groups of people. It is usually a box-shaped vehicle on four wheels, about the same width and length as a large automobile, 
+but taller and usually higher off the ground, also referred to as a light commercial vehicle or LCV.</rdfs:comment>
+        <rdfs:seeAlso rdf:resource="&dbpedia;Van"/>
+        <rdfs:seeAlso rdf:resource="&wiki;Van"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#Vehicle -->
+
+    <owl:Class rdf:about="&auto;Vehicle">
+        <rdfs:label xml:lang="en">Vehicle (gr:ProductOrService)</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gr;ProductOrService"/>
+        <rdfs:comment xml:lang="en">A vehicle is a device that is designed or used to transport people or cargo over land, water, air, or through space.</rdfs:comment>
+        <rdfs:seeAlso rdf:resource="&dbpedia;Vehicle"/>
+        <rdfs:seeAlso rdf:resource="&wiki;Vehicle"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#Watercraft -->
+
+    <owl:Class rdf:about="&auto;Watercraft">
+        <rdfs:label xml:lang="en">Watercraft (gr:ProductOrService)</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&auto;Vehicle"/>
+        <rdfs:comment xml:lang="en">A watercraft is a vehicle, vessel or craft designed to move across or through water.</rdfs:comment>
+        <rdfs:seeAlso rdf:resource="&dbpedia;Watercraft"/>
+        <rdfs:seeAlso rdf:resource="&wiki;Watercraft"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#Wheels -->
+
+    <owl:Class rdf:about="&auto;Wheels">
+        <rdfs:label xml:lang="en">Wheels Choice or Component</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&auto;ChoiceOrComponent"/>
+        <hasID>2</hasID>
+        <rdfs:comment xml:lang="en">The class of wheels-related choices or components (a &quot;MonoSelectGroup&quot; in automotive terminology), VW ID: 2</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/goodrelations/v1#Offering -->
+
+    <owl:Class rdf:about="&gr;Offering"/>
+    
+
+
+    <!-- http://purl.org/goodrelations/v1#PaymentMethod -->
+
+    <owl:Class rdf:about="&gr;PaymentMethod"/>
+    
+
+
+    <!-- http://purl.org/goodrelations/v1#PriceSpecification -->
+
+    <owl:Class rdf:about="&gr;PriceSpecification"/>
+    
+
+
+    <!-- http://purl.org/goodrelations/v1#ProductOrService -->
+
+    <owl:Class rdf:about="&gr;ProductOrService"/>
+    
+
+
+    <!-- http://purl.org/goodrelations/v1#ProductOrServiceModel -->
+
+    <owl:Class rdf:about="&gr;ProductOrServiceModel"/>
+    
+
+
+    <!-- http://purl.org/goodrelations/v1#QualitativeValue -->
+
+    <owl:Class rdf:about="&gr;QualitativeValue"/>
+    
+
+
+    <!-- http://purl.org/goodrelations/v1#QuantitativeValue -->
+
+    <owl:Class rdf:about="&gr;QuantitativeValue"/>
+    
+
+
+    <!-- http://purl.org/goodrelations/v1#QuantitativeValueFloat -->
+
+    <owl:Class rdf:about="&gr;QuantitativeValueFloat"/>
+    
+
+
+    <!-- http://purl.org/goodrelations/v1#QuantitativeValueInteger -->
+
+    <owl:Class rdf:about="&gr;QuantitativeValueInteger"/>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Class -->
+
+    <owl:Class rdf:about="&owl;Class"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl#Anti-lock_Braking_System -->
+
+    <owl:NamedIndividual rdf:about="http://iurianu.rocks/wp-content/uploads/cdn/auto.owl#Anti-lock_Braking_System">
+        <rdf:type rdf:resource="&auto;FeatureValue"/>
+        <rdfs:label>Anti-lock Braking System</rdfs:label>
+        <rdfs:isDefinedBy>http://dbpedia.org/resource/Anti-lock_braking_system</rdfs:isDefinedBy>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl#electronicStabilityControl -->
+
+    <owl:NamedIndividual rdf:about="http://iurianu.rocks/wp-content/uploads/cdn/auto.owl#electronicStabilityControl">
+        <rdf:type rdf:resource="&auto;FeatureValue"/>
+        <rdfs:label>Electronic Stability Control</rdfs:label>
+        <rdfs:isDefinedBy>http://dbpedia.org/resource/Electronic_stability_control</rdfs:isDefinedBy>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#0to100KMH -->
+
+    <owl:NamedIndividual rdf:about="&auto;0to100KMH">
+        <rdf:type rdf:resource="&auto;SpeedInterval"/>
+        <rdfs:label xml:lang="en">0to100KMH (auto:SpeedInterval)</rdfs:label>
+        <gr:hasMinValueFloat rdf:datatype="&xsd;float">0.0</gr:hasMinValueFloat>
+        <gr:hasMaxValueFloat rdf:datatype="&xsd;float">100.0</gr:hasMaxValueFloat>
+        <gr:hasUnitOfMeasurement rdf:datatype="&xsd;string">KMH</gr:hasUnitOfMeasurement>
+        <rdfs:comment xml:lang="en">The speed interval from 0 to 100 km/h</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#0to60MPH -->
+
+    <owl:NamedIndividual rdf:about="&auto;0to60MPH">
+        <rdf:type rdf:resource="&auto;SpeedInterval"/>
+        <rdfs:label xml:lang="en">0to60MPH (auto:SpeedInterval)</rdfs:label>
+        <gr:hasMinValueFloat rdf:datatype="&xsd;float">0.0</gr:hasMinValueFloat>
+        <gr:hasMaxValueFloat rdf:datatype="&xsd;float">60.0</gr:hasMaxValueFloat>
+        <gr:hasUnitOfMeasurement rdf:datatype="&xsd;string">HM</gr:hasUnitOfMeasurement>
+        <rdfs:comment xml:lang="en">The speed interval from 0 to 60 mph</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#1GLI -->
+
+    <owl:NamedIndividual rdf:about="&auto;1GLI">
+        <rdf:type rdf:resource="&auto;FuelQuantity"/>
+        <rdfs:label xml:lang="en">1GLI (auto:FuelQuantity)</rdfs:label>
+        <gr:hasValueFloat rdf:datatype="&xsd;float">1.0</gr:hasValueFloat>
+        <gr:hasUnitOfMeasurement rdf:datatype="&xsd;string">GLI</gr:hasUnitOfMeasurement>
+        <rdfs:comment xml:lang="en">The fuel quantity of 1 British (imperial) gallon</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#1GLL -->
+
+    <owl:NamedIndividual rdf:about="&auto;1GLL">
+        <rdf:type rdf:resource="&auto;FuelQuantity"/>
+        <rdfs:label xml:lang="en">1GLL (auto:FuelQuantity)</rdfs:label>
+        <gr:hasValueFloat rdf:datatype="&xsd;float">1.0</gr:hasValueFloat>
+        <gr:hasUnitOfMeasurement rdf:datatype="&xsd;string">GLL</gr:hasUnitOfMeasurement>
+        <rdfs:comment xml:lang="en">The fuel quantity of 1 US gallon</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#1LTR -->
+
+    <owl:NamedIndividual rdf:about="&auto;1LTR">
+        <rdf:type rdf:resource="&auto;FuelQuantity"/>
+        <rdfs:label xml:lang="en">1LTR (auto:FuelQuantity)</rdfs:label>
+        <gr:hasValueFloat rdf:datatype="&xsd;float">1.0</gr:hasValueFloat>
+        <gr:hasUnitOfMeasurement rdf:datatype="&xsd;string">LTR</gr:hasUnitOfMeasurement>
+        <rdfs:comment xml:lang="en">The fuel quantity of 1 liter</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#4WD -->
+
+    <owl:NamedIndividual rdf:about="&auto;4WD">
+        <rdf:type rdf:resource="&auto;DriveWheelConfigurationValue"/>
+        <rdfs:label xml:lang="en">Four-Wheel Drive</rdfs:label>
+        <rdfs:comment xml:lang="en">Four-wheel Drive is a transmission layout where the engine primarily drives two wheels with a part-time four-wheel drive capability.</rdfs:comment>
+        <rdfs:seeAlso rdf:resource="&wiki;Four-wheel_drive"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#AWD -->
+
+    <owl:NamedIndividual rdf:about="&auto;AWD">
+        <rdf:type rdf:resource="&auto;DriveWheelConfigurationValue"/>
+        <rdfs:label xml:lang="en">All-wheel drive (auto:DriveWheelConfigurationValue)</rdfs:label>
+        <rdfs:comment xml:lang="en">All-wheel Drive is a transmission layout where the engine drives all four wheels.</rdfs:comment>
+        <rdfs:seeAlso rdf:resource="&wiki;Four-wheel_drive"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#BodyStyle4X4 -->
+
+    <owl:NamedIndividual rdf:about="&auto;BodyStyle4X4">
+        <rdf:type rdf:resource="&auto;BodyStyleValue"/>
+        <rdfs:label xml:lang="en">4 X 4 (auto:BodyStyleValue)</rdfs:label>
+        <hasID>6</hasID>
+        <rdfs:comment xml:lang="en">Four-by-Four Vehicle, VW ID: 6</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#BodyStyleCabriolet -->
+
+    <owl:NamedIndividual rdf:about="&auto;BodyStyleCabriolet">
+        <rdf:type rdf:resource="&auto;BodyStyleValue"/>
+        <rdfs:label xml:lang="en">Cabriolet (auto:BodyStyleValue)</rdfs:label>
+        <hasID>4</hasID>
+        <rdfs:comment xml:lang="en">Cabriolet, VW ID: 4</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#BodyStyleCoupe -->
+
+    <owl:NamedIndividual rdf:about="&auto;BodyStyleCoupe">
+        <rdf:type rdf:resource="&auto;BodyStyleValue"/>
+        <rdfs:label xml:lang="en">Coupe (auto:BodyStyleValue)</rdfs:label>
+        <hasID>7</hasID>
+        <rdfs:comment xml:lang="en">Coupe, VW ID: 7</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#BodyStyleEstate -->
+
+    <owl:NamedIndividual rdf:about="&auto;BodyStyleEstate">
+        <rdf:type rdf:resource="&auto;BodyStyleValue"/>
+        <rdfs:label xml:lang="en">Estate (auto:BodyStyleValue)</rdfs:label>
+        <hasID>3</hasID>
+        <rdfs:comment xml:lang="en">Estate, VW ID: 3</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#BodyStyleHatchback -->
+
+    <owl:NamedIndividual rdf:about="&auto;BodyStyleHatchback">
+        <rdf:type rdf:resource="&auto;BodyStyleValue"/>
+        <rdfs:label xml:lang="en">Hatchback</rdfs:label>
+        <hasID>1</hasID>
+        <rdfs:comment xml:lang="en">Hatchback, VW ID: 1</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#BodyStyleMPV -->
+
+    <owl:NamedIndividual rdf:about="&auto;BodyStyleMPV">
+        <rdf:type rdf:resource="&auto;BodyStyleValue"/>
+        <rdfs:label xml:lang="en">MPV (auto:BodyStyleValue)</rdfs:label>
+        <hasID>5</hasID>
+        <rdfs:comment xml:lang="en">Multi-purpose Vehicle, VW ID: 5</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#BodyStyleSaloon -->
+
+    <owl:NamedIndividual rdf:about="&auto;BodyStyleSaloon">
+        <rdf:type rdf:resource="&auto;BodyStyleValue"/>
+        <rdfs:label xml:lang="en">Saloon (auto:BodyStyleValue)</rdfs:label>
+        <hasID>2</hasID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#BodyStyleUnspecified -->
+
+    <owl:NamedIndividual rdf:about="&auto;BodyStyleUnspecified">
+        <rdf:type rdf:resource="&auto;BodyStyleValue"/>
+        <rdfs:label xml:lang="en">Unspecified (auto:BodyStyleValue)</rdfs:label>
+        <hasID>0</hasID>
+        <rdfs:comment xml:lang="en">Unspecified, VW ID: 0</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#Combined -->
+
+    <owl:NamedIndividual rdf:about="&auto;Combined">
+        <rdf:type rdf:resource="&auto;TrafficPattern"/>
+        <rdfs:label xml:lang="en">Combined (auto:TrafficPattern)</rdfs:label>
+        <rdfs:comment xml:lang="en">Combined usage as a traffic pattern</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#Diesel -->
+
+    <owl:NamedIndividual rdf:about="&auto;Diesel">
+        <rdf:type rdf:resource="&auto;FuelTypeValue"/>
+        <rdfs:label xml:lang="en">Diesel (auto:FuelTypeValue)</rdfs:label>
+        <hasID>2</hasID>
+        <rdfs:comment xml:lang="en">Diesel, VW ID: 2</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#Euro1 -->
+
+    <owl:NamedIndividual rdf:about="&auto;Euro1">
+        <rdf:type rdf:resource="&auto;EmissionStandardValue"/>
+        <rdfs:label xml:lang="en">Euro 1 (auto:EmissionStandardValue)</rdfs:label>
+        <rdfs:comment xml:lang="en">The emission standard EURO 1</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#Euro2 -->
+
+    <owl:NamedIndividual rdf:about="&auto;Euro2">
+        <rdf:type rdf:resource="&auto;EmissionStandardValue"/>
+        <rdfs:label xml:lang="en">Euro 2 (auto:EmissionStandardValue)</rdfs:label>
+        <rdfs:comment xml:lang="en">The emission standard EURO 2</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#Euro3 -->
+
+    <owl:NamedIndividual rdf:about="&auto;Euro3">
+        <rdf:type rdf:resource="&auto;EmissionStandardValue"/>
+        <rdfs:label xml:lang="en">Euro 3 (auto:EmissionStandardValue)</rdfs:label>
+        <rdfs:comment xml:lang="en">The emission standard EURO 3</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#Euro4 -->
+
+    <owl:NamedIndividual rdf:about="&auto;Euro4">
+        <rdf:type rdf:resource="&auto;EmissionStandardValue"/>
+        <rdfs:label xml:lang="en">Euro 4 (auto:EmissionStandardValue)</rdfs:label>
+        <rdfs:comment xml:lang="en">The emission standard EURO 4</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#Euro5 -->
+
+    <owl:NamedIndividual rdf:about="&auto;Euro5">
+        <rdf:type rdf:resource="&auto;EmissionStandardValue"/>
+        <rdfs:label xml:lang="en">Euro 5 (auto:EmissionStandardValue)</rdfs:label>
+        <rdfs:comment xml:lang="en">The emission standard EURO 5</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#ExtraUrban -->
+
+    <owl:NamedIndividual rdf:about="&auto;ExtraUrban">
+        <rdf:type rdf:resource="&auto;TrafficPattern"/>
+        <rdfs:label xml:lang="en">Extra Urban</rdfs:label>
+        <rdfs:comment xml:lang="en">Extra urban as a traffic pattern</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#FWD -->
+
+    <owl:NamedIndividual rdf:about="&auto;FWD">
+        <rdf:type rdf:resource="&auto;DriveWheelConfigurationValue"/>
+        <rdfs:label xml:lang="en">Front-wheel drive, FWD (auto:DriveWheelConfigurationValue)</rdfs:label>
+        <rdfs:comment xml:lang="en">Front-wheel drive is a transmission layout where the engine drives the front wheels.</rdfs:comment>
+        <rdfs:seeAlso rdf:resource="&wiki;Front-wheel_drive"/>
+        <rdfs:seeAlso rdf:resource="&wiki;Drive_wheel#Front-wheel_drive"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#GearboxAutomatic -->
+
+    <owl:NamedIndividual rdf:about="&auto;GearboxAutomatic">
+        <rdf:type rdf:resource="&auto;GearboxTypeValue"/>
+        <rdfs:label xml:lang="en">Automatic (auto:GearboxTypeValue)</rdfs:label>
+        <hasID>2</hasID>
+        <rdfs:comment xml:lang="en">Automatic gearbox, VW ID: 2</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#GearboxDSG -->
+
+    <owl:NamedIndividual rdf:about="&auto;GearboxDSG">
+        <rdf:type rdf:resource="&auto;GearboxTypeValue"/>
+        <rdfs:label xml:lang="en">DSG (auto:GearboxTypeValue)</rdfs:label>
+        <hasID>3</hasID>
+        <rdfs:comment xml:lang="en">DSG gearbox, VW ID: 3</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#GearboxManual -->
+
+    <owl:NamedIndividual rdf:about="&auto;GearboxManual">
+        <rdf:type rdf:resource="&auto;GearboxTypeValue"/>
+        <rdfs:label xml:lang="en">Manual (auto:GearboxTypeValue)</rdfs:label>
+        <hasID>1</hasID>
+        <rdfs:comment xml:lang="en">Manual gearbox, VW ID: 1</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#Hybrid -->
+
+    <owl:NamedIndividual rdf:about="&auto;Hybrid">
+        <rdf:type rdf:resource="&auto;FuelTypeValue"/>
+        <rdfs:label xml:lang="en">Hybrid (auto:FuelTypeValue)</rdfs:label>
+        <hasID>3</hasID>
+        <rdfs:comment xml:lang="en">Hybrid, VW ID: 3</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#LeftSteeringPosition -->
+
+    <owl:NamedIndividual rdf:about="&auto;LeftSteeringPosition">
+        <rdf:type rdf:resource="&auto;SteeringPositionValue"/>
+        <rdfs:label xml:lang="en">Left Hand Drive</rdfs:label>
+        <rdfs:comment xml:lang="en">The steering position is on the left side of the vehicle (viewed from the main direction of driving). For cars this means that you drive on the right side of the road.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#Petrol -->
+
+    <owl:NamedIndividual rdf:about="&auto;Petrol">
+        <rdf:type rdf:resource="&auto;FuelTypeValue"/>
+        <rdfs:label xml:lang="en">Petrol</rdfs:label>
+        <hasID>1</hasID>
+        <rdfs:comment xml:lang="en">Petrol</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#RWD -->
+
+    <owl:NamedIndividual rdf:about="&auto;RWD">
+        <rdf:type rdf:resource="&auto;DriveWheelConfigurationValue"/>
+        <rdfs:label xml:lang="en">Rear-wheel drive, RWD (auto:DriveWheelConfigurationValue)</rdfs:label>
+        <rdfs:comment xml:lang="en">Rear-wheel drive is a transmission layout where the engine drives the rear wheels.</rdfs:comment>
+        <rdfs:seeAlso rdf:resource="&wiki;Automobile_layout#Rear_wheel_drive_layouts"/>
+        <rdfs:seeAlso rdf:resource="&wiki;Drive_wheel#Rear-wheel_drive"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#RightSteeringPosition -->
+
+    <owl:NamedIndividual rdf:about="&auto;RightSteeringPosition">
+        <rdf:type rdf:resource="&auto;SteeringPositionValue"/>
+        <rdfs:label xml:lang="en">Right Hand Drive</rdfs:label>
+        <rdfs:comment xml:lang="en">The steering position is on the right side of the vehicle (viewed from the main direction of driving). For cars this means that you drive on the left side of the road.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#TT4SpeedAuto -->
+
+    <owl:NamedIndividual rdf:about="&auto;TT4SpeedAuto">
+        <rdf:type rdf:resource="&auto;TransmissionTypeValueAutomatic"/>
+        <rdfs:label xml:lang="en">4 Speed auto (auto:TransmissionTypeValueAutomatic)</rdfs:label>
+        <gearboxTypeId>1</gearboxTypeId>
+        <hasID>1</hasID>
+        <rdfs:comment xml:lang="en">4 Speed auto. VW ID: 1</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#TT5SpeedAutoDSG -->
+
+    <owl:NamedIndividual rdf:about="&auto;TT5SpeedAutoDSG">
+        <rdf:type rdf:resource="&auto;TransmissionTypeValueAutomatic"/>
+        <rdfs:label xml:lang="en">5 Speed auto DSG (auto:TransmissionTypeValueAutomatic)</rdfs:label>
+        <gearboxTypeId>3</gearboxTypeId>
+        <hasID>8</hasID>
+        <rdfs:comment xml:lang="en">5 Speed auto DSG, VW ID: 8</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#TT5SpeedAutoTiptronic -->
+
+    <owl:NamedIndividual rdf:about="&auto;TT5SpeedAutoTiptronic">
+        <rdf:type rdf:resource="&auto;TransmissionTypeValueAutomatic"/>
+        <rdfs:label xml:lang="en">5 Speed auto tiptronic (auto:TransmissionTypeValueAutomatic)</rdfs:label>
+        <gearboxTypeId>2</gearboxTypeId>
+        <hasID>3</hasID>
+        <rdfs:comment xml:lang="en">5 Speed auto tiptronic, VW ID: 3</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#TT5SpeedManual -->
+
+    <owl:NamedIndividual rdf:about="&auto;TT5SpeedManual">
+        <rdf:type rdf:resource="&auto;TransmissionTypeValueManual"/>
+        <rdfs:label xml:lang="en">5 Speed manual (auto:TransmissionTypeValueManual)</rdfs:label>
+        <gearboxTypeId>1</gearboxTypeId>
+        <hasID>2</hasID>
+        <rdfs:comment xml:lang="en">5 Speed manual, VW ID: 2</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#TT6SpeedAuto -->
+
+    <owl:NamedIndividual rdf:about="&auto;TT6SpeedAuto">
+        <rdf:type rdf:resource="&auto;TransmissionTypeValueAutomatic"/>
+        <rdfs:label xml:lang="en">6 Speed auto (auto:TransmissionTypeValueAutomatic)</rdfs:label>
+        <hasID>5</hasID>
+        <gearboxTypeId>2</gearboxTypeId>
+        <rdfs:comment xml:lang="en">6 Speed auto, VW ID: 5</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#TT6SpeedAutoDSG -->
+
+    <owl:NamedIndividual rdf:about="&auto;TT6SpeedAutoDSG">
+        <rdf:type rdf:resource="&auto;TransmissionTypeValueAutomatic"/>
+        <rdfs:label xml:lang="en">6 Speed auto DSG (auto:TransmissionTypeValueAutomatic)</rdfs:label>
+        <hasID>6</hasID>
+        <gearboxTypeId>3</gearboxTypeId>
+        <rdfs:comment xml:lang="en">6 Speed auto DSG, VW ID: 6</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#TT6SpeedAutoTiptronic -->
+
+    <owl:NamedIndividual rdf:about="&auto;TT6SpeedAutoTiptronic">
+        <rdf:type rdf:resource="&auto;TransmissionTypeValueAutomatic"/>
+        <rdfs:label xml:lang="en">6 Speed auto tiptronic (auto:TransmissionTypeValueAutomatic)</rdfs:label>
+        <hasID>7</hasID>
+        <gearboxTypeId>2</gearboxTypeId>
+        <rdfs:comment xml:lang="en">6 Speed auto tiptronic, VW ID: 7</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#TT6SpeedManual -->
+
+    <owl:NamedIndividual rdf:about="&auto;TT6SpeedManual">
+        <rdf:type rdf:resource="&auto;TransmissionTypeValueManual"/>
+        <rdfs:label xml:lang="en">6 Speed manual (auto:TransmissionTypeValueManual)</rdfs:label>
+        <gearboxTypeId>1</gearboxTypeId>
+        <hasID>4</hasID>
+        <rdfs:comment xml:lang="en">6 Speed manual, VW ID: 4</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#TT7SpeedAutoDSG -->
+
+    <owl:NamedIndividual rdf:about="&auto;TT7SpeedAutoDSG">
+        <rdf:type rdf:resource="&auto;TransmissionTypeValueAutomatic"/>
+        <rdfs:label xml:lang="en">7 Speed auto DSG (auto:TransmissionTypeValueAutomatic)</rdfs:label>
+        <hasID>9</hasID>
+        <gearboxTypeId>3</gearboxTypeId>
+        <rdfs:comment xml:lang="en">7 Speed auto DSG, VW ID: 9</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#TT8SpeedAuto -->
+
+    <owl:NamedIndividual rdf:about="&auto;TT8SpeedAuto">
+        <rdf:type rdf:resource="&auto;TransmissionTypeValueAutomatic"/>
+        <rdfs:label xml:lang="en">8 Speed auto (auto:TransmissionTypeValueAutomatic)</rdfs:label>
+        <gearboxTypeId>2</gearboxTypeId>
+        <hasID>10</hasID>
+        <rdfs:comment xml:lang="en">8 Speed auto, VW ID: 10</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#TTUnspecified -->
+
+    <owl:NamedIndividual rdf:about="&auto;TTUnspecified">
+        <rdf:type rdf:resource="&auto;TransmissionTypeValue"/>
+        <rdfs:label xml:lang="en">Unspecified (auto:TransmissionTypeValue)</rdfs:label>
+        <gearboxTypeId>1</gearboxTypeId>
+        <hasID>0</hasID>
+        <rdfs:comment xml:lang="en">Unspecified, VW ID: 0</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#TwoStrokeMixture -->
+
+    <owl:NamedIndividual rdf:about="&auto;TwoStrokeMixture">
+        <rdf:type rdf:resource="&auto;FuelTypeValue"/>
+        <rdfs:label xml:lang="en">Two-Stroke Mixture (auto:FuelTypeValue)</rdfs:label>
+        <rdfs:comment xml:lang="en">A pre-mixed fuel-oil mixture</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://iurianu.rocks/wp-content/uploads/cdn/auto.owl/#Urban -->
+
+    <owl:NamedIndividual rdf:about="&auto;Urban">
+        <rdf:type rdf:resource="&auto;TrafficPattern"/>
+        <rdfs:label xml:lang="en">Urban (auto:TrafficPattern)</rdfs:label>
+        <rdfs:comment xml:lang="en">Urban usage as a traffic pattern</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://iurianu.rocks/wp-content/uploads/cdn/auto.owl#Anti-lock_Braking_System"/>
+            <rdf:Description rdf:about="http://iurianu.rocks/wp-content/uploads/cdn/auto.owl#electronicStabilityControl"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="&auto;LeftSteeringPosition"/>
+            <rdf:Description rdf:about="&auto;RightSteeringPosition"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+
