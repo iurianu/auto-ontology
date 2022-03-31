@@ -3,7 +3,6 @@
 (This file is a work in progress)
 
 ### Technologies used:
-###
-### RDFa
-### RDFs
-### OWL (Web Ontology Language)
+- RDFa
+- RDFs
+- OWL (Web Ontology Language)
